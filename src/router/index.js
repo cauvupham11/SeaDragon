@@ -18,7 +18,8 @@ const routes=[
         path: "/news",
         name: "News",
         component: ComNews,
-    },
+        },
+        
     {
         path: "/servicelist",
         name: "Servicelist",
