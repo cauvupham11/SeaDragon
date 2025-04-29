@@ -10,6 +10,9 @@
 import Header from "./layout/ComHeader.vue";
 import Footer from "./layout/ComFooter.vue";
 
+
+
+
 export default {
   name: "App",
   components: {
