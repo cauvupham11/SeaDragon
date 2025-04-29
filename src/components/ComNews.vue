@@ -164,7 +164,7 @@ body {
   justify-content: center;
   margin-bottom: 30px;
   position: absolute;
-  top: 265px;
+  top: 230px;
   left: 50%;
   transform: translateX(-50%);
 }
