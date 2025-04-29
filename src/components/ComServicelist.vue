@@ -11,6 +11,7 @@
         :class="{ active: activeTab === tab }"
         @click="activeTab = tab"
       >
+      <div></div>
         {{ tabLabels[tab] }}
       </button>
     </div>
