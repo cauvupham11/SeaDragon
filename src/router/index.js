@@ -2,6 +2,7 @@ import { createWebHistory,createRouter } from "vue-router";
 import ComProcess from '@/components/ComProcess.vue';  
 import ComNews from '@/components/ComNews.vue';
 import Home from '@/components/ComHome.vue';
+import ComServicelist from '@/components/ComServicelist.vue';
 const routes=[
     {
         path: "/",
@@ -18,6 +19,11 @@ const routes=[
         name: "News",
         component: ComNews,
     },
+    {
+        path: "/servicelist",
+        name: "Servicelist",
+        component: ComServicelist,
+    }
 ]
 const router=createRouter({
     history:createWebHistory(),
