@@ -99,7 +99,6 @@ h3 {
 h1 span {
     color: #5DBBFF;
 }
-
 .section {
     display: flex;
     align-items: center;

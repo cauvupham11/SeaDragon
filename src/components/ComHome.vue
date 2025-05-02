@@ -72,43 +72,42 @@
     </div>
   </section>
 
-  <!-- Collaboration Section -->
   <section class="collaboration">
     <div class="collab-left">
     <img src="../assets/sep.png" alt="Hợp tác phát triển">
     <div class="collab-left-content">
       <h4>Hợp tác phát triển</h4>
-      <h2>Cùng nhau vươn xa</h2>
-      <p>Chúng tôi đồng hành cùng bạn<br>để kiến tạo giải pháp</p>
+      <h2>Cùng nhau <br> vươn xa</h2>
+      <p>Chúng tôi đồng hành<br>cùng bạn để kiến tạo <br>giải pháp</p>
     </div>
   </div>
-    <div class="collab-right">
-      <h3>Khách hàng tin tưởng</h3>
-      <p class="subtext">Sự tin tưởng của khách hàng là giá trị cốt lõi của chúng tôi</p>
+  <div class="collab-right">
+  <div class="text-block">
+    <h3>Khách hàng<br>tin tưởng</h3>
+    <p class="subtext">Sự tin tưởng của khách<br>hàng là giá trị cốt lõi của<br>chúng tôi</p>
+  </div>
 
-      <div class="stats">
-        <div class="stat-item">
-          <h2>100+</h2>
-          <p>Hoàn thành dự án</p>
-        </div>
-        <div class="stat-item">
-          <h2>1,230</h2>
-          <p>Khách hàng tin tưởng</p>
-        </div>
-      </div>
-
-      <button class="btn-collab">Bắt đầu hợp tác</button>
+  <div class="stats">
+    <div class="stat-item">
+      <h2>100+</h2>
+      <p>Hoàn thành dự án</p>
     </div>
-  </section>
+    <div class="stat-item">
+      <h2>1,230</h2>
+      <p>Khách hàng tin tưởng</p>
+    </div>
+  </div>
 
-  <!-- Commitment Section -->
+  <button class="btn-collab">Bắt đầu hợp tác</button>
+</div>
+  </section>
   <section class="commitment">
     <div class="commitment-left">
       <h4>Cam kết chất lượng</h4>
-      <h2>Làm việc nhanh chóng là chất lượng của chúng tôi</h2>
+      <h2>Làm việc nhanh chóng là chất<br>lượng của chúng tôi</h2>
       <p>
-        Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu mà không làm giảm chất lượng.
-        Với quy trình hiệu quả và đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh chóng và đáng tin cậy.
+        Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu<br>mà không làm giảm chất lượng.
+        Với quy trình hiệu quả và<br>đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh<br>chóng và đáng tin cậy.
       </p>
     </div>
 
@@ -121,25 +120,35 @@
         </div>
       </div>
 
-      <div class="project-item small">
-        <img src="../assets/bangphattrien.png" alt="bang phat trien">
+      <div class="project-item">
+        <img src="../assets/5.png" alt="bang phat trien">
       </div>
     </div>
   </section>
 
   <!-- About Us Section -->
   <section class="about-us">
-    <div class="about-left">
-      <div class="circle big">
-        <img src="../assets/customer.png" alt="Hợp tác phát triển">
+    <div class="customer-section">
+      <div class="circle circle-main">
+        <span>200+<br><small>Khách hàng<br>hài lòng</small></span>
+      </div>
+      <div class="circle circle-top-right">
+        <img src="../assets/image - 13.png" alt="Group khách hàng">
+      </div>
+      <div class="circle circle-left">
+        <img src="../assets/6.png" alt="Bắt tay khách hàng">
+      </div>
+      <div class="circle circle-bottom-left">
+        <img src="../assets/7.png" alt="Cuộc họp khách hàng">
       </div>
     </div>
+
 
     <div class="about-right">
       <h4>Về chúng tôi</h4>
       <h2>Sự tin tưởng của khách hàng ngày càng vững chắc</h2>
       <p>
-        Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt nhất, được khách hàng tin tưởng theo thời gian.
+        Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt<br> nhất, được khách hàng tin tưởng theo thời gian.
       </p>
       <a href="#" class="btn-primary">Bắt đầu ngay</a>
     </div>
@@ -185,9 +194,6 @@
       <a href="#" class="btn-primary">Khám phá dự án của chúng tôi</a>
     </div>
   </section>
-
-  <!-- Inspiration Section -->
-  <!-- Inspiration Section -->
 <section class="inspiration">
     <div class="inspiration-header">
       <div class="inspiration-text">
@@ -259,9 +265,9 @@
   <section class="cta">
     <div class="cta-content">
       <h3>Đồng Hành Cùng Sea Dragon Technology</h3>
-      <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
-      <a href="#" class="btn-secondary">Đặt lịch tư vấn</a>
+      <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh<br>chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
     </div>
+    <a href="#" class="btn-secondary">Đặt lịch tư vấn</a>
   </section>
   
 </template>
@@ -287,7 +293,7 @@ export default {
   }
   
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
     color: #333;
   }
@@ -563,7 +569,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     padding: 60px 20px;
     background: #fff;
     width: 1400px;
@@ -585,7 +591,20 @@ export default {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
+.collab-left-content::after {
+  content: '';
+  position: absolute;
+  top : 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 370px;
+  height: 300px;
+  background: linear-gradient(to bottom, rgba(231, 231, 231, 1) 0%, rgba(248, 248, 248, 0) 50%, rgba(248, 248, 248, 1) 100%);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
 .collab-left img {
   position: absolute;
   top: 0;
@@ -594,8 +613,8 @@ export default {
   height: 300px;
   object-fit: cover;
   display: block;
-  z-index: 2; /* z-index cao hơn để hình nằm trên */
-  transform: scaleX(-1); /* Lật ngang */
+  z-index: 2; 
+  transform: scaleX(-1); 
 }
 
 .collab-left-content {
@@ -621,38 +640,43 @@ export default {
 }
 
 .collab-left-content h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 15px;
 }
 
 .collab-left-content p {
   left:20px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.8;
 }
-
-  .collab-right {
-    flex: 1;
-    width: 1000px;
-    height: 300px; 
-    padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .collab-right h3 {
-    font-size: 24px;
+.collab-right {
+  display: flex;
+  width: 900px;
+  height: 300px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-direction: row;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.collab-right h3 {
+    font-size: 32px;
     color: #333;
     margin-bottom: 10px;
-  }
+}
+.collab-right{
+  line-height: 1.6;
+  font-size:16px;
+}
   
-  .collab-right .subtext {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 30px;
-  }
-  
+.collab-right .text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
   .stats {
     display: flex;
     justify-content: space-around;
@@ -666,23 +690,26 @@ export default {
   
   .stat-item h2 {
     color: #1a73e8;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 600;
   }
   
   .stat-item p {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
   }
   
   .btn-collab {
     background-color: #1a73e8;
     color: white;
+    width:180px;
+    height:60px;
     padding: 12px 24px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
+    font-size:16px;
     box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
     transition: background 0.3s;
   }
@@ -695,41 +722,49 @@ export default {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 50px;
-    padding: 80px 20px;
+    padding: 40px 20px;
     background: #fff;
-    max-width: 1100px;
+    width: 1350px;
     margin: 0 auto;
   }
   
   .commitment-left {
     flex: 1;
+    padding-top:80px;
   }
   
   .commitment-left h4 {
     color: #999;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
   
   .commitment-left h2 {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #333;
+    line-height:42px;
   }
   
   .commitment-left p {
     font-size: 16px;
     color: #666;
+    line-height:32px;
   }
   
-  .commitment-right {
+.commitment-right {
     flex: 1;
     position: relative;
-  }
+}
+.project-item img {
+  height: 400px; 
+  object-fit: cover; 
+}
+
   
   .timeline-header {
     display: flex;
+    margin-right:40px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
@@ -827,44 +862,97 @@ export default {
     justify-content: center;
     align-items: flex-start;
     gap: 50px;
-    padding: 80px 20px;
+    padding: 20px 20px;
     background: #fff;
-    max-width: 1100px;
+    max-width: 1400px;
+    height:600px;
     margin: 0 auto;
   }
   
-  .about-left {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .circle.big {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .circle.big img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+  .customer-section {
+  position: relative;
+  width: 700px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle-main {
+  width: 160px;
+  height: 160px;
+  background-color: #0057e7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  left: 270px;
+  top: 220px;
+  z-index: 2;
+  position: absolute; /* đảm bảo vị trí tuyệt đối */
+  border: 6px solid white; /* ✅ thêm viền trắng */
+  border-radius: 50%;       /* giữ hình dạng hình tròn */
+}
+
+
+.circle-main small {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.circle-top-right {
+  width: 320px;
+  height: 320px;
+  top: 10px;
+  right: 60px;
+  z-index: 1;
+}
+
+.circle-left {
+  width: 220px;
+  height: 220px;
+  top: 170px;
+  left: 100px;
+  z-index: 1;
+}
+
+.circle-bottom-left {
+  width: 140px;
+  height: 140px;
+  bottom: 110px;
+  left: 290px;
+  z-index: 3
+}
+
   .about-right {
     flex: 1;
+    padding:100px 140px 100px 20px;
   }
   
   .about-right h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 10px;
   }
   
   .about-right h2 {
-    font-size: 28px;
+    font-size: 36px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -873,6 +961,7 @@ export default {
     font-size: 16px;
     color: #666;
     margin-bottom: 30px;
+    line-height: 28px;
   }
   
   .btn-primary {
@@ -891,19 +980,19 @@ export default {
   }
   
   .projects {
-    padding: 100px 20px;
-    background: #f9fafc;
+    padding: 10px 20px;
+    background: white;
     text-align: center;
   }
   
   .projects-header h4 {
     font-size: 14px;
     color: #999;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .projects-header h2 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -913,16 +1002,16 @@ export default {
     color: #666;
     max-width: 600px;
     margin: 0 auto 50px;
+    line-height:28px;
   }
   
   .projects-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 1100px;
+    width: 1100px;
     margin: 0 auto 40px;
   }
-  
   .project-item {
     position: relative;
     overflow: hidden;
@@ -937,22 +1026,28 @@ export default {
   }
   
   .project-info {
-    position: absolute;
-    bottom: 0;
-    padding: 20px;
-    color: #fff;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  }
-  
-  .project-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .project-info p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+.project-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: left; 
+  padding-left:10px;  
+}
+
+.project-info p {
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: justify; 
+  line-height:28px;
+  padding-left:10px;
+  padding-right:30px;
+}
+
   
   .project-item.small {
     height: 250px;
@@ -968,27 +1063,27 @@ export default {
   }
   
   .inspiration {
-    padding: 100px 20px;
+    padding: 60px 20px 20px 40px;
     background: #ffffff;
   }
-  
   .inspiration-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto 50px;
+    padding: 0 60px;
   }
   
   .inspiration-text h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 10px;
   }
   
   .inspiration-text h2 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -997,14 +1092,15 @@ export default {
     font-size: 16px;
     color: #666;
     max-width: 600px;
+    line-height:28px;
   }
   
   .inspiration-button .btn-primary {
-    margin-top: 20px;
+    margin-top: 160px;
   }
   
   .inspiration-gallery {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -1039,42 +1135,39 @@ export default {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
-  
   @keyframes slide-right {
     0% {
       transform: translateX(-100%);
     }
     100% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
   }
-  
-  
-  
   .carousel-track:hover,
   .carousel-track-right:hover {
     animation-play-state: paused;
   }
   
   .testimonial {
-    padding: 100px 20px;
+    padding: 0 20px;
     background: #fff;
     text-align: center;
   }
   
   .testimonial-header h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .testimonial-header h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 30px;
     color: #333;
+    line-height:28px;
   }
   
   .testimonial-header p {
@@ -1091,7 +1184,7 @@ export default {
   }
   
   .testimonial-main {
-    max-width: 700px;
+    max-width: 1200px;
   }
   
   .testimonial-logo {
@@ -1122,46 +1215,350 @@ export default {
     color: #007BFF;
     border-radius: 50%;
     width: 40px;
+    padding-bottom: 4px;
     height: 40px;
     font-size: 20px;
     cursor: pointer;
   }
   
   .cta {
-    margin-top: 80px;
-    padding: 40px 20px;
-    background: linear-gradient(to right, #1e90ff, #007bff);
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cta-content h3 {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-  
-  .cta-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .btn-secondary {
-    display: inline-block;
-    background: white;
-    color: #007BFF;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
+  margin-top: 80px;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #1e90ff, #007bff);
+  border-radius: 20px;
+  color: white;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;              
+  align-items: center;        
+  justify-content: space-between; 
+  gap: 30px;                  
+  text-align: left;
+}
+
+.cta-content {
+  flex: 1;
+}
+
+.cta-content h3 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  margin-bottom: 0;
+  line-height: 28px;
+}
+
+.btn-secondary {
+  background: white;
+  color: #007BFF;
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  white-space: nowrap;
+}
   .btn-secondary:hover {
     background: #e6e6e6;
   }
+@media (max-width: 1440px) {
+  .collaboration,
+  .commitment,
+  .about-us,
+  .inspiration-header,
+  .inspiration-gallery {
+    max-width: 1200px;
+    width: 90%;
+  }
+  
+  .projects-grid {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 40px;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .collaboration {
+    flex-direction: column;
+    width: 90%;
+    padding: 40px 20px;
+  }
+  
+  .collab-right {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .commitment {
+    flex-direction: column;
+    width: 90%;
+    gap: 40px;
+  }
+  
+  .commitment-left {
+    padding-top: 20px;
+  }
+  
+  .about-us {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+  }
+  
+  .about-right {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .customer-section {
+    width: 100%;
+    height: 500px;
+    margin-top:0
+  }
+  .services{
+    padding: 50px 20px 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    height: auto;
+    padding-bottom: 60px;
+  }
+  
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-item.big {
+    height: 400px;
+    grid-row: span 1;
+  }
+  
+  .inspiration-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .inspiration-button .btn-primary {
+    margin-top: 20px;
+  }
+  .hero::before {
+    height:300px;
+    top:940px;
+  }
+  .testimonial-content {
+    flex-direction: column;
+  }
+
+  .testimonial-nav {
+    order: unset; 
+  }
+
+  .testimonial-main {
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  
+  .services {
+    gap: 20px;
+    padding: 50px 5px 0 40px;
+  }
+
+  .services li {
+    flex: 1 1 40%; 
+    min-width: 100px;
+  }
+  
+  .partners img {
+    margin: 20px 10px;
+    width: 120px;
+  }
+  
+  .collab-left {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .collab-left-content h2 {
+    font-size: 24px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .testimonial-content {
+    flex-direction: column;
+  }
+  
+  .cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  
+  .hero-text .description {
+    font-size: 14px;
+  }
+  
+  .trusted-box{
+    margin-top:-40px;
+    width: 100%;
+  } 
+  .growth-box {
+    width: 100%;
+  }
+  
+  .arrow-icon {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg) scaleX(-1);
+  }
+  
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+  }
+  .partners{
+    margin-top: 10px;
+    margin-bottom:-30px;
+  }
+  
+  .partners img {
+    width: 100px;
+    margin: 10px;
+  }
+  
+  .collab-right h3 {
+    font-size: 24px;
+  }
+  
+  .commitment-left h2,
+  .about-right h2 {
+    font-size: 28px;
+  }
+  
+  .projects-header h2,
+  .inspiration-text h2,
+  .testimonial-header h2 {
+    font-size: 32px;
+  }
+  
+  .circle-main {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .circle-top-right {
+    right: 20px;
+    width: 250px;
+    height: 250px;
+    left:140px;
+    top: 60px;
+  }
+  
+  .circle-left {
+    left: -40px;
+    width: 180px;
+    height: 180px;
+  }
+  
+  .circle-bottom-left {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+  }
+  
+  .carousel-track img,
+  .carousel-track-right img {
+    width: 200px;
+    height: 150px;
+  }
+  .timeline-header{
+    width:350px;
+    margin:0 auto;
+
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  
+  .btn-start,
+  .btn-schedule,
+  .btn-collab,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social-icons a img {
+    width: 30px;
+    margin-bottom:-20px;
+  }
+  
+  .partners img {
+    width: 80px;
+  }
+  
+  .collab-left-content h2 {
+    font-size: 20px;
+  }
+  
+  .collab-right h3 {
+    font-size: 20px;
+  }
+  
+  .testimonial-quote {
+    font-size: 16px;
+  }
+}
 </style>
 

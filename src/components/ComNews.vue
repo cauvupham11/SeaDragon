@@ -164,7 +164,7 @@ body {
   justify-content: center;
   margin-bottom: 30px;
   position: absolute;
-  top: 265px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -258,6 +258,7 @@ body {
   }
 
   .search-bar {
+    margin-top:60px;
     width: 80%;
   }
 
