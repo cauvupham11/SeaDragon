@@ -59,8 +59,6 @@ export default {
               '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
             ],
           },
-        ],
-        app: [
           {
             image: require('@/assets/icondt.svg'),
             title: 'Gói Thiết Kế App',
@@ -74,8 +72,6 @@ export default {
               '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
             ],
           },
-        ],
-        agency: [
           {
             image:require('@/assets/Agency.svg'),
             title: 'Gói Thiết Kế Agency',
@@ -89,6 +85,97 @@ export default {
               '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
             ],
           },
+          
+
+
+        ],
+        app: [
+          {
+            image: require('@/assets/iconweb.svg'),
+            title: 'Gói Thiết Kế Website',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+          {
+            image: require('@/assets/icondt.svg'),
+            title: 'Gói Thiết Kế App',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+           {
+            image:require('@/assets/Agency.svg'),
+            title: 'Gói Thiết Kế Agency',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+
+
+
+        ],
+        agency: [
+          {
+            image: require('@/assets/iconweb.svg'),
+            title: 'Gói Thiết Kế Website',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+          {
+            image: require('@/assets/icondt.svg'),
+            title: 'Gói Thiết Kế App',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+          {
+            image:require('@/assets/Agency.svg'),
+            title: 'Gói Thiết Kế Agency',
+            price: '2.500.000đ',
+            features: [
+              '💡 Phong cách: Hiện đại, tối giản',
+              '🎨 Tư vấn thiết kế miễn phí',
+              '⏱️ Thời gian triển khai: 10-20 ngày',
+              '🛠️ Chỉnh sửa tối đa 3 lần',
+              '👷 Kiến trúc sư 1-3 năm kinh nghiệm',
+              '📦 Bàn giao: 3D + bản vẽ kỹ thuật',
+            ],
+          },
+
+
+
         ],
       },
     };
@@ -105,7 +192,7 @@ export default {
 /* Section layout */
 .pricing-section {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #fbfbfb;
   padding: 40px 20px;
   text-align: center;
 }
@@ -121,29 +208,32 @@ export default {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+  gap: 10px;
   background: #ffffff;
-  padding: 10px 20px;
-  border-radius: 30px;
+  padding: 8px 5px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 40px; /* <-- thêm dòng này để tạo khoảng cách bên dưới */
 }
 
 .tab-btn {
-  padding: 10px 25px;
+  padding: 8px 20px;
   border: none;
   background-color: transparent;
   color: #1f7ed1;
-  border-radius: 25px;
+  border-radius: 9999px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .tab-btn.active {
-  background-color: #228be6;
+  background-color: #1f7ed1;
   color: white;
 }
+
 
 /* Cards */
 .card-group {
