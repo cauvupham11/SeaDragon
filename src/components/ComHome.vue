@@ -295,7 +295,7 @@ export default {
   body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #5D5D5D;
   }
   
   .header {

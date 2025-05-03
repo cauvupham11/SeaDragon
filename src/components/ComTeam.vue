@@ -114,7 +114,7 @@ export default {
 
 .title {
   font-size: 2.5rem;
-  color: #00bcd4;
+  color: #5DBBFF;
   margin-bottom: 1.5rem;
   font-weight: bold;
 }
@@ -179,14 +179,15 @@ export default {
   background-size: cover;         
   background-position: center;    
   background-repeat: no-repeat;   
-  font-style: italic;
-  font-weight: bold;
+
   padding :50px 250px;
 }
 .mission-section h2 {
   text-align: center;
 }
 .mission-section p{
+  font-style: italic;
+  font-weight: bold;
   text-align: left;
 }
 

@@ -8,8 +8,8 @@
             <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
             <router-link to="/Process" class="nav_link">Quy trình</router-link>
             <router-link to="/team" class="nav_link">Đội ngũ</router-link>
-              <a href="#" class="nav_link">Bảng giá</a>
-              <router-link to="/news" class="nav_link">Tin Tức</router-link>
+            <router-link to="/servicelist" class="nav_link">Bảng giá</router-link>
+            <router-link to="/news" class="nav_link">Tin Tức</router-link>
           </nav>
           <div>
               <button class="btn_head">Đặt lịch tư vấn</button>
@@ -26,7 +26,7 @@
         <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
         <router-link to="/Process" class="nav_link" @click="closeMenu">Quy trình</router-link>
         <router-link to="/team" class="nav_link">Đội ngũ</router-link>
-        <a href="#" class="nav_link" @click="closeMenu">Bảng giá</a>
+        <router-link to="/servicelist" class="nav_link">Bảng giá</router-link>
         <router-link to="/news" class="nav_link" @click="closeMenu">Tin Tức</router-link>
       </nav>
   </header>
