@@ -7,7 +7,7 @@
           <nav class="header_choice">
             <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
             <router-link to="/Process" class="nav_link">Quy trình</router-link>
-              <a href="#" class="nav_link">Đội ngũ</a>
+            <router-link to="/team" class="nav_link">Đội ngũ</router-link>
               <a href="#" class="nav_link">Bảng giá</a>
               <router-link to="/news" class="nav_link">Tin Tức</router-link>
           </nav>
@@ -25,7 +25,7 @@
       <nav class="mobile_menu" v-if="menuVisible">
         <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
         <router-link to="/Process" class="nav_link" @click="closeMenu">Quy trình</router-link>
-        <a href="#" class="nav_link" @click="closeMenu">Đội ngũ</a>
+        <router-link to="/team" class="nav_link">Đội ngũ</router-link>
         <a href="#" class="nav_link" @click="closeMenu">Bảng giá</a>
         <router-link to="/news" class="nav_link" @click="closeMenu">Tin Tức</router-link>
       </nav>
@@ -81,7 +81,7 @@ export default {
       this.menuVisible = !this.menuVisible;
     },
     closeMenu() {
-      this.menuVisible = false; // Đóng menu khi click vào một liên kết
+      this.menuVisible = false;
     },
   },
 };

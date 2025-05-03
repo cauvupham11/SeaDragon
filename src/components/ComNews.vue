@@ -195,7 +195,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
 .news-item {
   background-color: #fff;
   border-radius: 8px;

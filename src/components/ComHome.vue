@@ -440,7 +440,7 @@ export default {
   position: absolute;
   transform: rotate(180deg);
   top: -20px;
-  left: 300px;
+  left: 250px;
   width: 40px;
   height: auto;
 }
@@ -554,7 +554,7 @@ export default {
   }
   
   .partners {
-    margin-top: 120px;
+    margin-top: 110px;
     font-size: 18px;
     position: relative; 
     z-index: 2;
@@ -760,8 +760,6 @@ export default {
   height: 400px; 
   object-fit: cover; 
 }
-
-  
   .timeline-header {
     display: flex;
     margin-right:40px;

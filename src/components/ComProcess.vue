@@ -67,8 +67,8 @@ export default {
 .container {
     background-color: #ffffff;
     padding: 41px;
-    padding-left: 100px;  /* Tăng khoảng cách bên trái */
-    padding-right: 100px; /* Tăng khoảng cách bên phải */
+    padding-left: 100px;  
+    padding-right: 100px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -76,7 +76,7 @@ export default {
 h1 {
     text-align: center;
     color: #5DBBFF;
-    font-size: 40px; /* Tăng kích thước chữ */
+    font-size: 40px; 
     margin-bottom: -26px;
 }
 
@@ -84,10 +84,9 @@ h2 {
     text-align: center;
     color: #5DBBFF;
     margin-top: 30px;
-    font-size: 40px; /* Tăng kích thước chữ */
-    margin-bottom: 30px; /* Tăng khoảng cách dưới */
+    font-size: 40px; 
+    margin-bottom: 30px; 
 }
-
 h3 {
     color: #5d5d5d;
     font-size: 30px;
@@ -130,7 +129,6 @@ h1 span {
 .section h3.active {
     color: #0369F0; 
 }
-
 .section:first-child h3 {
     background: linear-gradient(to right, #34c759 50%, transparent 50%);
     background-size: 200% 10px;
@@ -138,14 +136,12 @@ h1 span {
     background-repeat: no-repeat;
     padding-bottom: 5px;
 }
-
 .section p {
     margin: 10px 0 0; 
     color: #5d5d5d;
     font-size: 20px;
     line-height: 1.6; 
 }
-
 .section:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -157,7 +153,6 @@ h1 span {
     background-color: #0369F0;
 }
 
-/* Media Queries để làm cho giao diện responsive */
 @media screen and (max-width: 1200px) {
     .container {
         padding-left: 60px;
