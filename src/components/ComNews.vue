@@ -208,7 +208,6 @@ body {
 .news-item:hover {
   transform: translateY(-5px);
 }
-
 .news-item img {
   width: 100%;
   height: 226px;

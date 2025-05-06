@@ -22,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <div class="mission-section">
       <h2 class="title">Sứ mệnh</h2>
       <p class="description">
@@ -33,7 +32,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'TeamSection',
@@ -81,7 +79,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .team-section {
   padding: 10px 0;

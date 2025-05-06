@@ -2,7 +2,9 @@
   <header class="header">
       <div class="container_header">
           <div class="flex_logoIMG">
+            <a href="/">
               <img src="/images/logoSDT.png" alt="Logo">
+            </a>
           </div>
           <nav class="header_choice">
             <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
@@ -14,7 +16,6 @@
           <div>
               <button class="btn_head">Đặt lịch tư vấn</button>
           </div>
-          <!-- Hamburger icon -->
           <div class="hamburger" @click="toggleMenu">
               <div class="line"></div>
               <div class="line"></div>
@@ -31,8 +32,6 @@
       </nav>
   </header>
 </template>
-
-  
 <script>
 import eventBus from "@/eventBus";
 

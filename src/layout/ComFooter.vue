@@ -45,16 +45,22 @@
                 <h2 class="contact-title">Liên hệ với chúng tôi</h2>
                 <ul class="contact-info">
                     <li>
-                        <img src="/images/location.png" alt="Location" class="icon">
-                        194 đường số 7, Khu dân cư Trung Sơn, xã Bình Hưng, huyện Bình Chánh, TPHCM.
+                        <a href="https://www.google.com/maps?q=194+đường+số+7,+Khu+dân+cư+Trung+Sơn,+xã+Bình+Hưng,+huyện+Bình+Chánh,+TPHCM" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/location.png" alt="Location" class="icon">
+                            194 đường số 7, Khu dân cư Trung Sơn, xã Bình Hưng, huyện Bình Chánh, TPHCM.
+                        </a>
                     </li>
                     <li>
-                        <img src="/images/logoemail3.png" alt="Email" class="icon">
-                        Email: congngherongbien@gmail.com
+                        <a href="mailto:congngherongbien@gmail.com">
+                            <img src="/images/logoemail3.png" alt="Email" class="icon">
+                            Email: congngherongbien@gmail.com
+                        </a>
                     </li>
                     <li>
-                        <img src="/images/phone.png" alt="Phone" class="icon">
-                        Hotline: 0931494389
+                        <a href="tel:0931494389">
+                            <img src="/images/phone.png" alt="Phone" class="icon">
+                            Hotline: 0931494389
+                        </a>
                     </li>
                 </ul>
             </section>
@@ -73,7 +79,6 @@
             </iframe>
         </div>
     </div>
-
 </footer>
 </template>
   
@@ -103,7 +108,7 @@
 }
 
 .contain_footer {
-    max-width: 1482px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -202,23 +207,26 @@
 
 .contact-info {
     list-style: none;
-    margin-top:25px;
+    margin-top: 25px;
+    padding: 0;
 }
 
 .contact-info li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-    color: #383838;
-    font-size: 14px;
-    font-size:16px;
-    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
 }
 
+.contact-info a {
+    display: flex;
+    align-items: center;
+    color: #383838;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
 .icon {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 10px; 
     flex-shrink: 0;
 }
 
@@ -234,11 +242,6 @@
     text-decoration: none;
     color: #050303;
     transition: color 0.3s ease;
-}
-
-.policy-links a:hover {
-    color: #DCF0FF;
-    text-decoration: underline;
 }
 
 iframe {

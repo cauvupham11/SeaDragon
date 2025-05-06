@@ -55,7 +55,7 @@
           <li>Development</li>
         </ul>
 
-        <button class="btn-start">Bắt đầu dự án</button>
+        <button  @click="goToServiceList" class="btn-start">Bắt đầu dự án</button>
   </div>
     <div class="social-icons">
       <a href="#"><img src="../assets/icons8-tiktok-48.png" alt="TikTok"></a>
@@ -98,7 +98,7 @@
     </div>
   </div>
 
-  <button class="btn-collab">Bắt đầu hợp tác</button>
+  <button  @click="goToServiceList" class="btn-collab">Bắt đầu hợp tác</button>
 </div>
   </section>
   <section class="commitment">
@@ -150,7 +150,7 @@
       <p>
         Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt<br> nhất, được khách hàng tin tưởng theo thời gian.
       </p>
-      <a href="#" class="btn-primary">Bắt đầu ngay</a>
+      <a href="/servicelist" class="btn-primary">Bắt đầu ngay</a>
     </div>
   </section>
 
@@ -166,7 +166,7 @@
 
     <div class="projects-grid">
       <div class="project-item big">
-        <img src="../assets/Websitedesgin.jpg" alt="Website Thẩm mỹ">
+        <img src="../assets/project-1.png" alt="Website Thẩm mỹ">
         <div class="project-info">
           <h3>Website Thẩm mỹ</h3>
           <p>Giao diện sang trọng, tinh tế, tôn vinh vẻ đẹp và thương hiệu. Tối ưu trải nghiệm người dùng với hình ảnh chất lượng cao, bố cục hài hòa và màu sắc thu hút.</p>
@@ -174,7 +174,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitedoan.jpg" alt="Website bán hàng">
+        <img src="../assets/project-2.png" alt="Website bán hàng">
         <div class="project-info">
           <h3>Website bán hàng</h3>
           <p>Giao diện hiện đại, dễ dùng, tạo cảm giác tin cậy, thúc đẩy hành vi mua sắm, tối ưu doanh số.</p>
@@ -182,7 +182,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitephongthuy.jpg" alt="Website phong thủy">
+        <img src="../assets/project-3.png" alt="Website phong thủy">
         <div class="project-info">
           <h3>Website phong thủy</h3>
           <p>Thiết kế cân bằng giữa yếu tố truyền thống và hiện đại, tạo cảm giác bình yên, tin cậy cho khách hàng.</p>
@@ -191,7 +191,7 @@
     </div>
 
     <div class="projects-button">
-      <a href="#" class="btn-primary">Khám phá dự án của chúng tôi</a>
+      <a href="/servicelist" class="btn-primary">Khám phá dự án của chúng tôi</a>
     </div>
   </section>
 <section class="inspiration">
@@ -205,37 +205,38 @@
         </p>
       </div>
       <div class="inspiration-button">
-        <a href="#" class="btn-primary">Xem dự án</a>
+        <a href="/servicelist" class="btn-primary">Xem dự án</a>
       </div>
     </div>
   
     <div class="inspiration-gallery">
       <div class="carousel-track">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-    </div>
+      <img src="../assets/image-2.png" alt="UI 1" loading="lazy"> 
+      <img src="../assets/image-5.png" alt="UI 2" loading="lazy"> 
+      <img src="../assets/image-3.png" alt="UI 3" loading="lazy">
+      <img src="../assets/image-4.png" alt="UI 4" loading="lazy">
+      <img src="../assets/image.png" alt="UI 5" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 6" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 7" loading="lazy"> 
+      <img src="../assets/image.png" alt="UI 8" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+</div>
     <div class="carousel-track-right">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-      </div>
+    <img src="../assets/image-7.png" alt="UI 1" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 2" loading="lazy">
+    <img src="../assets/image-2.png" alt="UI 3" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 4" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 5" loading="lazy">
+    <img src="../assets/image-4.png" alt="UI 6" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 7" loading="lazy">
+    <img src="../assets/image.png" alt="UI 8" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+    <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+ </div>
     </div>
   </section>
-  
-
-  <!-- Testimonial Section -->
-  <section class="testimonial">
+    <section class="testimonial">
     <div class="testimonial-header">
       <h4>Những gì khách hàng nhận xét</h4>
       <h2>Thành tựu nổi bật</h2>
@@ -267,7 +268,7 @@
       <h3>Đồng Hành Cùng Sea Dragon Technology</h3>
       <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh<br>chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
     </div>
-    <a href="#" class="btn-secondary">Đặt lịch tư vấn</a>
+    <a href="/servicelist" class="btn-secondary">Đặt lịch tư vấn</a>
   </section>
   
 </template>
@@ -275,16 +276,59 @@
 export default {
   name: 'HomePage',
   mounted() {
-    const track = document.querySelector('.carousel-track');
-      track.addEventListener('mouseover', () => {
-      track.style.animationPlayState = 'paused';
+    // const track = document.querySelector('.carousel-track');
+    // track.addEventListener('a', () => {
+    //   track.style.animationPlayState = 'paused';
+    // });
+    // track.addEventListener('a', () => {
+    //   track.style.animationPlayState = 'running';
+    // });
+    const testimonials = [
+      {
+        quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!”",
+        author: "Anh Minh",
+        position: "CEO Công ty Thương mại Điện tử",
+      },
+      {
+        quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này để xây dựng nền tảng thương mại điện tử cho công ty. Tôi rất ấn tượng với sự sáng tạo và chuyên môn của họ khi biến những yêu cầu khắt khe của chúng tôi thành một trang web dễ dàng sử dụng nhưng vẫn đầy đủ tính năng. Từ việc tối ưu hóa giao diện, cải thiện tốc độ tải trang đến nâng cao khả năng tương tác, trang web của chúng tôi không chỉ mang đến trải nghiệm tốt cho khách hàng mà còn giúp gia tăng tỷ lệ chuyển đổi và doanh thu. Đội ngũ luôn chu đáo và sẵn sàng hỗ trợ bất kỳ lúc nào.Tôi rất mong chờ cơ hội hợp tác tiếp theo!”",
+        author: "Lan Anh",
+        position: "CEO Công ty Thương mại Điện tử",
+      }
+    ];
+    let currentTestimonialIndex = 0;
+    const prevButton = document.querySelector('.testimonial-nav.prev');
+    const nextButton = document.querySelector('.testimonial-nav.next');
+    const testimonialQuote = document.querySelector('.testimonial-quote');
+    const testimonialAuthor = document.querySelector('.testimonial-author h4');
+    const testimonialPosition = document.querySelector('.testimonial-author p');
+
+    function updateTestimonial(index) {
+      const testimonial = testimonials[index];
+      testimonialQuote.textContent = testimonial.quote;
+      testimonialAuthor.textContent = testimonial.author;
+      testimonialPosition.textContent = testimonial.position;
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
-    track.addEventListener('mouseout', () => {
-      track.style.animationPlayState = 'running';
+
+    nextButton.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
+
+    updateTestimonial(currentTestimonialIndex);
+  },
+  methods: {
+    goToServiceList() {
+      this.$router.push('/servicelist');
+    }
   }
 }
 </script>
+
 <style scoped>
 * {
     margin: 0;
@@ -458,7 +502,7 @@ export default {
 
 .chart-legend {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   font-size: 14px;
 }
@@ -540,12 +584,14 @@ export default {
     font-weight: bold;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons {
     margin: 40px 0;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons a img {
@@ -902,9 +948,9 @@ export default {
   left: 270px;
   top: 220px;
   z-index: 2;
-  position: absolute; /* đảm bảo vị trí tuyệt đối */
-  border: 6px solid white; /* ✅ thêm viền trắng */
-  border-radius: 50%;       /* giữ hình dạng hình tròn */
+  position: absolute; 
+  border: 6px solid white; 
+  border-radius: 50%;      
 }
 
 
@@ -1105,50 +1151,51 @@ export default {
     display: block;
   }
   
-  .carousel-track, 
-  .carousel-track-right { 
-      display: flex; 
-      animation: slide-left 25s linear infinite; 
-      animation-direction: alternate; 
-      margin-bottom: 20px; 
+  .inspiration-gallery {
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+.carousel-track,
+.carousel-track-right {
+  display: flex;
+  animation: slide-left 25s linear infinite;
+  animation-direction: alternate;
+  margin-bottom: 20px;
+  white-space: nowrap; 
+}
+
+.carousel-track-right {
+  animation-name: slide-right;
+}
+
+.carousel-track img,
+.carousel-track-right img {
+  width: 250px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0%);
   }
-  
-  .carousel-track-right {
-    animation: slide-right 25s linear infinite;
-    animation-direction: alternate;
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .carousel-track img,
-  .carousel-track-right img {
-    width: 250px;
-    height: 200px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-right: 20px;
-    flex-shrink: 0;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  @keyframes slide-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  100% {
+    transform: translateX(0);
   }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .carousel-track:hover,
-  .carousel-track-right:hover {
-    animation-play-state: paused;
-  }
-  
+}
   .testimonial {
     padding: 0 20px;
     background: #fff;
@@ -1220,7 +1267,7 @@ export default {
   }
   
   .cta {
-  margin-top: 80px;
+  margin: 80px 0 40px 0;
   padding: 40px 20px;
   background: linear-gradient(to right, #1e90ff, #007bff);
   border-radius: 20px;
