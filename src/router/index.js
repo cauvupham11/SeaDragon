@@ -4,7 +4,6 @@ import ComNews from '@/components/ComNews.vue';
 import Home from '@/components/ComHome.vue';
 import Team from '@/components/ComTeam.vue';
 import ComServicelist from '@/components/ComServicelist.vue';
-import ProductAdmin from '@/components/admin/ProductAdmin.vue';
 import DetailNew from '@/components/DetailNew.vue';
 import Contact from '@/components/ContactPage.vue';
 // Phần admin
