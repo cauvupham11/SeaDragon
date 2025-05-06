@@ -7,6 +7,13 @@ import ComServicelist from '@/components/ComServicelist.vue';
 import ProductAdmin from '@/components/admin/ProductAdmin.vue';
 import DetailNew from '@/components/DetailNew.vue';
 import Contact from '@/components/ContactPage.vue';
+// Phần admin
+import AdminLayout from '@/components/admin/AdminLayout.vue';
+import ProductAdmin from '@/components/admin/ProductAdmin.vue';
+import OrderAdmin from '@/components/admin/OrderAdmin.vue';
+// import LoginPage from "@/components/admin/LoginPage.vue";
+import CategoriesAdmin from "@/components/admin/CategoriesAdmin.vue";
+import ComContent from "@/components/admin/ComContent.vue";
 const routes=[
     {
         path: "/",
@@ -47,9 +54,38 @@ const routes=[
         path:"/contact",
         name:"Contact",
         component:Contact,
+    },
+    {
+        path: "/admin",
+        component: AdminLayout,
+        children: [
+        {
+            path: "products",
+            name: "ProductAdmin",
+            component: ProductAdmin,
+        },
+        {
+            path: "orders",
+            name: "OrderAdmin",
+            component: OrderAdmin,
+        },
+        // {
+        //     path: "loginpage",
+        //     name: "LoginPageAdmin",
+        //     component: LoginPage,
+        // },
+        {
+            path: "Categories",
+            name: "CategoriesAdmin",
+            component: CategoriesAdmin,
+        },
+        {
+            path: "Content",
+            name: "ComContent",
+            component: ComContent,
+        },
+        ],
     }
-
-
 ]
 const router=createRouter({
     history:createWebHistory(),
