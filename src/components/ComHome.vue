@@ -55,7 +55,7 @@
           <li>Development</li>
         </ul>
 
-        <button class="btn-start">Bắt đầu dự án</button>
+        <button  @click="goToServiceList" class="btn-start">Bắt đầu dự án</button>
   </div>
     <div class="social-icons">
       <a href="#"><img src="../assets/icons8-tiktok-48.png" alt="TikTok"></a>
@@ -98,7 +98,7 @@
     </div>
   </div>
 
-  <button class="btn-collab">Bắt đầu hợp tác</button>
+  <button  @click="goToServiceList" class="btn-collab">Bắt đầu hợp tác</button>
 </div>
   </section>
   <section class="commitment">
@@ -150,7 +150,7 @@
       <p>
         Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt<br> nhất, được khách hàng tin tưởng theo thời gian.
       </p>
-      <a href="#" class="btn-primary">Bắt đầu ngay</a>
+      <a href="/servicelist" class="btn-primary">Bắt đầu ngay</a>
     </div>
   </section>
 
@@ -166,7 +166,7 @@
 
     <div class="projects-grid">
       <div class="project-item big">
-        <img src="../assets/Websitedesgin.jpg" alt="Website Thẩm mỹ">
+        <img src="../assets/project-1.png" alt="Website Thẩm mỹ">
         <div class="project-info">
           <h3>Website Thẩm mỹ</h3>
           <p>Giao diện sang trọng, tinh tế, tôn vinh vẻ đẹp và thương hiệu. Tối ưu trải nghiệm người dùng với hình ảnh chất lượng cao, bố cục hài hòa và màu sắc thu hút.</p>
@@ -174,7 +174,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitedoan.jpg" alt="Website bán hàng">
+        <img src="../assets/project-2.png" alt="Website bán hàng">
         <div class="project-info">
           <h3>Website bán hàng</h3>
           <p>Giao diện hiện đại, dễ dùng, tạo cảm giác tin cậy, thúc đẩy hành vi mua sắm, tối ưu doanh số.</p>
@@ -182,7 +182,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitephongthuy.jpg" alt="Website phong thủy">
+        <img src="../assets/project-3.png" alt="Website phong thủy">
         <div class="project-info">
           <h3>Website phong thủy</h3>
           <p>Thiết kế cân bằng giữa yếu tố truyền thống và hiện đại, tạo cảm giác bình yên, tin cậy cho khách hàng.</p>
@@ -191,7 +191,7 @@
     </div>
 
     <div class="projects-button">
-      <a href="#" class="btn-primary">Khám phá dự án của chúng tôi</a>
+      <a href="/servicelist" class="btn-primary">Khám phá dự án của chúng tôi</a>
     </div>
   </section>
 <section class="inspiration">
@@ -205,69 +205,84 @@
         </p>
       </div>
       <div class="inspiration-button">
-        <a href="#" class="btn-primary">Xem dự án</a>
+        <a href="/servicelist" class="btn-primary">Xem dự án</a>
       </div>
     </div>
   
     <div class="inspiration-gallery">
       <div class="carousel-track">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-    </div>
+      <img src="../assets/image-2.png" alt="UI 1" loading="lazy"> 
+      <img src="../assets/image-5.png" alt="UI 2" loading="lazy"> 
+      <img src="../assets/image-3.png" alt="UI 3" loading="lazy">
+      <img src="../assets/image-4.png" alt="UI 4" loading="lazy">
+      <img src="../assets/image.png" alt="UI 5" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 6" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 7" loading="lazy"> 
+      <img src="../assets/image.png" alt="UI 8" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+</div>
     <div class="carousel-track-right">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-      </div>
+    <img src="../assets/image-7.png" alt="UI 1" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 2" loading="lazy">
+    <img src="../assets/image-2.png" alt="UI 3" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 4" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 5" loading="lazy">
+    <img src="../assets/image-4.png" alt="UI 6" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 7" loading="lazy">
+    <img src="../assets/image.png" alt="UI 8" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+    <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+ </div>
     </div>
   </section>
-  
-
-  <!-- Testimonial Section -->
-  <section class="testimonial">
+    <section class="testimonial">
     <div class="testimonial-header">
       <h4>Những gì khách hàng nhận xét</h4>
       <h2>Thành tựu nổi bật</h2>
       <p>Những cột mốc quan trọng, khẳng định chất lượng và sự tin tưởng của khách hàng</p>
     </div>
-
-    <div class="testimonial-content">
+<!-- Dùng cho PC -->
+    <div class="testimonial-pc">
       <button class="testimonial-nav prev">←</button>
+
       <div class="testimonial-main">
-        <img src="../assets/google.png" alt="Google" class="testimonial-logo">
+        <img src="../assets/google.png" alt="Google" class="testimonial-logo" />
         <p class="testimonial-quote">
-          “Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty.
-          Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả.
-          Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể.
-          Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!”
-        </p>
+          Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!        </p>
         <div class="testimonial-author">
           <h4>Anh Minh</h4>
           <p>CEO Công ty Thương mại Điện tử</p>
         </div>
       </div>
+
       <button class="testimonial-nav next">→</button>
+    </div>
+
+    <!-- Dùng cho Mobile -->
+    <div class="testimonial-mobile">
+      <div class="testimonial-main">
+        <img src="../assets/google.png" alt="Google" class="testimonial-logo" />
+        <p class="testimonial-quote">
+          Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!        </p>
+        <div class="testimonial-author">
+          <h4>Anh Minh</h4>
+          <p>CEO Công ty Thương mại Điện tử</p>
+        </div>
+      </div>
+      <div class="testimonial-nav-wrapper">
+        <button class="testimonial-nav prev">←</button>
+        <button class="testimonial-nav next">→</button>
+      </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
   <section class="cta">
     <div class="cta-content">
       <h3>Đồng Hành Cùng Sea Dragon Technology</h3>
       <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh<br>chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
     </div>
-    <a href="#" class="btn-secondary">Đặt lịch tư vấn</a>
+    <a href="/servicelist" class="btn-secondary">Đặt lịch tư vấn</a>
   </section>
   
 </template>
@@ -275,16 +290,57 @@
 export default {
   name: 'HomePage',
   mounted() {
-    const track = document.querySelector('.carousel-track');
-      track.addEventListener('mouseover', () => {
-      track.style.animationPlayState = 'paused';
+  const testimonials = [
+    {
+      quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!”",
+      author: "Anh Minh",
+      position: "CEO Công ty Thương mại Điện tử",
+    },
+    {
+      quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này để xây dựng nền tảng thương mại điện tử cho công ty. Tôi rất ấn tượng với sự sáng tạo và chuyên môn của họ khi biến những yêu cầu khắt khe của chúng tôi thành một trang web dễ dàng sử dụng nhưng vẫn đầy đủ tính năng. Từ việc tối ưu hóa giao diện, cải thiện tốc độ tải trang đến nâng cao khả năng tương tác, trang web của chúng tôi không chỉ mang đến trải nghiệm tốt cho khách hàng mà còn giúp gia tăng tỷ lệ chuyển đổi và doanh thu. Đội ngũ luôn chu đáo và sẵn sàng hỗ trợ bất kỳ lúc nào. Tôi rất mong chờ cơ hội hợp tác tiếp theo!”",
+      author: "Lan Anh",
+      position: "CEO Công ty Thương mại Điện tử",
+    }
+  ];
+
+  let currentTestimonialIndex = 0;
+
+  const prevButtons = document.querySelectorAll('.testimonial-nav.prev');
+  const nextButtons = document.querySelectorAll('.testimonial-nav.next');
+  const quoteEls = document.querySelectorAll('.testimonial-quote');
+  const authorEls = document.querySelectorAll('.testimonial-author h4');
+  const positionEls = document.querySelectorAll('.testimonial-author p');
+
+  function updateTestimonial(index) {
+    const testimonial = testimonials[index];
+    quoteEls.forEach(el => el.textContent = testimonial.quote);
+    authorEls.forEach(el => el.textContent = testimonial.author);
+    positionEls.forEach(el => el.textContent = testimonial.position);
+  }
+
+  prevButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
-    track.addEventListener('mouseout', () => {
-      track.style.animationPlayState = 'running';
+  });
+
+  nextButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
+  });
+},
+methods: {
+  goToServiceList() {
+    this.$router.push('/servicelist');
   }
 }
+
+}
 </script>
+
 <style scoped>
 * {
     margin: 0;
@@ -294,7 +350,7 @@ export default {
   
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f9f9f9;
+    background-color: white;
     color: #5D5D5D;
   }
   
@@ -333,8 +389,8 @@ export default {
 .arrow-icon {
   position: absolute;
   transform: rotate(180deg) scaleX(-1);
-  top: -35px;
-  left: 120px;
+  top: -50px;
+  left: 80px;
   width: 40px;
   height: auto;
 }
@@ -397,7 +453,7 @@ export default {
   }
   
   .hero {
-    height:780px;
+  height:900px;
   position: relative;
   text-align: center;
   padding: 60px 20px 0 20px;
@@ -439,8 +495,8 @@ export default {
 .arrow-icon-left {
   position: absolute;
   transform: rotate(180deg);
-  top: -20px;
-  left: 250px;
+  top: 20px;
+  left: 180px;
   width: 40px;
   height: auto;
 }
@@ -458,7 +514,7 @@ export default {
 
 .chart-legend {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   font-size: 14px;
 }
@@ -540,12 +596,14 @@ export default {
     font-weight: bold;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons {
     margin: 40px 0;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons a img {
@@ -554,7 +612,7 @@ export default {
   }
   
   .partners {
-    margin-top: 110px;
+    margin-top: 140px;
     font-size: 18px;
     position: relative; 
     z-index: 2;
@@ -562,7 +620,7 @@ export default {
   
   .partners img {
     width: 180px;
-    margin: 50px;
+    margin: 60px;
   }
   
   .collaboration {
@@ -902,9 +960,9 @@ export default {
   left: 270px;
   top: 220px;
   z-index: 2;
-  position: absolute; /* đảm bảo vị trí tuyệt đối */
-  border: 6px solid white; /* ✅ thêm viền trắng */
-  border-radius: 50%;       /* giữ hình dạng hình tròn */
+  position: absolute; 
+  border: 6px solid white; 
+  border-radius: 50%;      
 }
 
 
@@ -1105,53 +1163,54 @@ export default {
     display: block;
   }
   
-  .carousel-track, 
-  .carousel-track-right { 
-      display: flex; 
-      animation: slide-left 25s linear infinite; 
-      animation-direction: alternate; 
-      margin-bottom: 20px; 
+  .inspiration-gallery {
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+.carousel-track,
+.carousel-track-right {
+  display: flex;
+  animation: slide-left 25s linear infinite;
+  animation-direction: alternate;
+  margin-bottom: 20px;
+  white-space: nowrap; 
+}
+
+.carousel-track-right {
+  animation-name: slide-right;
+}
+
+.carousel-track img,
+.carousel-track-right img {
+  width: 250px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0%);
   }
-  
-  .carousel-track-right {
-    animation: slide-right 25s linear infinite;
-    animation-direction: alternate;
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .carousel-track img,
-  .carousel-track-right img {
-    width: 250px;
-    height: 200px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-right: 20px;
-    flex-shrink: 0;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  @keyframes slide-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  100% {
+    transform: translateX(0);
   }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .carousel-track:hover,
-  .carousel-track-right:hover {
-    animation-play-state: paused;
-  }
-  
+}
   .testimonial {
     padding: 0 20px;
-    background: #fff;
+    background: white;
     text-align: center;
   }
   
@@ -1174,53 +1233,60 @@ export default {
     margin-bottom: 50px;
   }
   
-  .testimonial-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .testimonial-main {
-    max-width: 1200px;
-  }
-  
-  .testimonial-logo {
-    width: 120px;
-    margin-bottom: 20px;
-  }
-  
-  .testimonial-quote {
-    font-size: 18px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .testimonial-author h4 {
-    font-size: 20px;
-    color: #007BFF;
-  }
-  
-  .testimonial-author p {
-    font-size: 14px;
-    color: #666;
-  }
+  .testimonial-pc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-main {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.testimonial-logo {
+  max-width: 100px;
+  margin-bottom: 20px;
+} 
+
+.testimonial-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.testimonial-author h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.testimonial-author p {
+  margin: 5px 0 0;
+  font-style: italic;
+}
   
   .testimonial-nav {
-    background: none;
-    border: 2px solid #007BFF;
-    color: #007BFF;
-    border-radius: 50%;
-    width: 40px;
-    padding-bottom: 4px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-  }
+  background: none;
+  border: 2px solid #007BFF;
+  color: #007BFF;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  padding-bottom:1px;
+}
   
   .cta {
-  margin-top: 80px;
+  margin: 40px 0 40px 0;
   padding: 40px 20px;
   background: linear-gradient(to right, #1e90ff, #007bff);
   border-radius: 20px;
@@ -1260,9 +1326,9 @@ export default {
   transition: 0.3s;
   white-space: nowrap;
 }
-  .btn-secondary:hover {
+.btn-secondary:hover {
     background: #e6e6e6;
-  }
+}
 @media (max-width: 1440px) {
   .collaboration,
   .commitment,
@@ -1272,17 +1338,40 @@ export default {
     max-width: 1200px;
     width: 90%;
   }
-  
   .projects-grid {
     width: 90%;
   }
+  .testimonial-pc {
+    display: none;
+  }
+  .testimonial-mobile {
+    display: flex;
+  }
+  .testimonial-nav-wrapper{
+    display: flex;
+    gap:40px;
+  }
+  .hero{
+    height: 850px;
+    padding-bottom: 40px;
+  }
+  .hero::before{
+    display:flex;
+    margin-top :50px;
+    width: 1200px;
+  }
+  .partners{
+    margin-top:100px;
+  }
 }
-
 @media (max-width: 1200px) {
   .header {
     padding: 20px 40px;
   }
-  
+  .hero{
+    height: 1300px;
+    padding-bottom: 40px;
+  }
   .hero-content {
     flex-direction: column;
     gap: 40px;
@@ -1328,8 +1417,21 @@ export default {
     margin-top:0
   }
   .services{
-    padding: 50px 20px 0 20px;
+    padding: 80px 20px 0 20px;
+    gap:40px;
   }
+  .trusted-box{
+    margin-top:-60px;
+  } 
+  .hero::before{
+    display:flex;
+    margin-top :200px;
+  }
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+  }
+
 }
 
 @media (max-width: 992px) {
@@ -1344,7 +1446,7 @@ export default {
   }
   
   .project-item.big {
-    height: 400px;
+    height: 250px;
     grid-row: span 1;
   }
   
@@ -1368,11 +1470,20 @@ export default {
 
   .testimonial-nav {
     order: unset; 
+    padding-bottom:2px;
   }
 
   .testimonial-main {
     text-align: center;
     padding: 0 10px;
+  }
+  .circle-top-right{
+    top: 10px;
+    right:10px;
+
+  }
+  .circle-bottom-left{
+    bottom:15px;
   }
 }
 
@@ -1396,17 +1507,16 @@ export default {
   }
   
   .services {
-    gap: 20px;
-    padding: 50px 5px 0 40px;
+    padding: 80px 5px 0 40px;
   }
 
   .services li {
-    flex: 1 1 40%; 
-    min-width: 100px;
+    flex: 1 1 30%; 
+    max-width: 150px;
   }
   
   .partners img {
-    margin: 20px 10px;
+    margin: 10px 10px;
     width: 120px;
   }
   
@@ -1433,8 +1543,12 @@ export default {
     text-align: center;
     padding: 30px 20px;
   }
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    top:-20px;
+  }
 }
-
 @media (max-width: 576px) {
   .hero-text h1 {
     font-size: 28px;
@@ -1460,6 +1574,7 @@ export default {
   .arrow-icon-left {
     left: 50%;
     transform: translateX(-50%) rotate(180deg);
+    top:-20px;
   }
   .partners{
     margin-top: 10px;
@@ -1521,6 +1636,11 @@ export default {
     margin:0 auto;
 
   }
+  .hero::before{
+    display:flex;
+    margin-top :80px;
+    width: 380px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -1557,6 +1677,10 @@ export default {
   .testimonial-quote {
     font-size: 16px;
   }
+  .hero::before{
+    display:flex;
+    margin-top :50px;
+    width: 400px;
+  }
 }
 </style>
-

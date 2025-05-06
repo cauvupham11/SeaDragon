@@ -2,7 +2,9 @@
   <header class="header">
       <div class="container_header">
           <div class="flex_logoIMG">
+            <a href="/">
               <img src="/images/logoSDT.png" alt="Logo">
+            </a>
           </div>
           <nav class="header_choice">
             <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
@@ -12,27 +14,24 @@
             <router-link to="/news" class="nav_link">Tin Tức</router-link>
           </nav>
           <div>
-              <button class="btn_head">Đặt lịch tư vấn</button>
+            <button class="btn_head" @click="goToServiceList">Đặt lịch tư vấn</button>
           </div>
-          <!-- Hamburger icon -->
           <div class="hamburger" @click="toggleMenu">
               <div class="line"></div>
               <div class="line"></div>
               <div class="line"></div>
           </div>
       </div>
-      <!-- Mobile menu -->
-      <nav class="mobile_menu" v-if="menuVisible">
+        <nav :class="['mobile_menu', { active: menuVisible }]">
         <router-link to="/" class="nav_link" @click="closeMenu">Trang chủ</router-link>
         <router-link to="/Process" class="nav_link" @click="closeMenu">Quy trình</router-link>
-        <router-link to="/team" class="nav_link">Đội ngũ</router-link>
-        <router-link to="/servicelist" class="nav_link">Bảng giá</router-link>
+        <router-link to="/team" class="nav_link" @click="closeMenu">Đội ngũ</router-link>
+        <router-link to="/servicelist" class="nav_link" @click="closeMenu">Bảng giá</router-link>
         <router-link to="/news" class="nav_link" @click="closeMenu">Tin Tức</router-link>
+        <router-link to="/servicelist" class="nav_link" @click="closeMenu">Đặt lịch tư vấn</router-link>
       </nav>
   </header>
 </template>
-
-  
 <script>
 import eventBus from "@/eventBus";
 
@@ -44,6 +43,7 @@ export default {
       menuVisible: false,
     };
   },
+
   created() {
     eventBus.on("loginSuccess", (user) => {
       this.user = user;
@@ -83,6 +83,9 @@ export default {
     closeMenu() {
       this.menuVisible = false;
     },
+    goToServiceList() {
+    this.$router.push('/contact');
+    },
   },
 };
 </script>
@@ -90,11 +93,12 @@ export default {
   <style>
    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-* {
+* {    
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
 .header {
     display: flex;
     justify-content: space-between; 
@@ -180,25 +184,26 @@ export default {
     background-color: #383838;
 }
 
-.mobile_menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    position: fixed;
-    top: 80px;
-    right: 20px; 
-    width: 90%;
-    max-width: 400px; 
-    height: auto;
-    max-height: calc(100vh - 100px); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-    padding: 20px;
-    gap: 16px;
-    overflow-y: auto;
-    z-index: 999;
-    transition: all 0.3s ease; 
-}
+  .mobile_menu {
+      position: fixed;
+      top: 100px; 
+      left:0;
+      width: 100vw; 
+      height: calc(100vh - 80px); 
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 40px;
+      overflow-y: auto;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      transform: translateX(-100%); 
+  }
+  .mobile_menu.active {
+      transform: translateX(0);
+  }
 
 @media (max-width: 1024px) {
   .header {
@@ -210,25 +215,23 @@ export default {
     gap: 12px; 
     padding: 0;
   }
-
   .flex_logoIMG img {
     width: 120px; 
+    margin-left:20px;
   }
 
   .header_choice {
     display: none;
   }
   .btn_head {
-    padding: 8px 16px; 
-    font-size: 0.9rem;  
-    height: 40px; 
+    display: none;
   }
-
   .hamburger {
     display: flex;
     width: 24px; 
     height: 16px;
     margin-left: auto;
+    margin-right:20px;
   }
   .hamburger .line {
     height: 3px; 

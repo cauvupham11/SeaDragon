@@ -22,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <div class="mission-section">
       <h2 class="title">Sứ mệnh</h2>
       <p class="description">
@@ -33,7 +32,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'TeamSection',
@@ -75,13 +73,11 @@ export default {
   methods: {
     swapWithMain(thumbnailIndex) {
       const clickedPhotoId = this.thumbnailPhotos[thumbnailIndex].id;
-      
       this.mainPhotoId = clickedPhotoId;
     }
   }
 };
 </script>
-
 <style scoped>
 .team-section {
   padding: 10px 0;
@@ -89,7 +85,6 @@ export default {
   font-family: 'Roboto', sans-serif;
   color:#5D5D5D
 }
-
 .team-header {
   max-width: 820px;
   margin: 0 auto;
