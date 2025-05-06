@@ -55,7 +55,7 @@
           <li>Development</li>
         </ul>
 
-        <button class="btn-start">Bắt đầu dự án</button>
+        <button  @click="goToServiceList" class="btn-start">Bắt đầu dự án</button>
   </div>
     <div class="social-icons">
       <a href="#"><img src="../assets/icons8-tiktok-48.png" alt="TikTok"></a>
@@ -72,43 +72,42 @@
     </div>
   </section>
 
-  <!-- Collaboration Section -->
   <section class="collaboration">
     <div class="collab-left">
     <img src="../assets/sep.png" alt="Hợp tác phát triển">
     <div class="collab-left-content">
       <h4>Hợp tác phát triển</h4>
-      <h2>Cùng nhau vươn xa</h2>
-      <p>Chúng tôi đồng hành cùng bạn<br>để kiến tạo giải pháp</p>
+      <h2>Cùng nhau <br> vươn xa</h2>
+      <p>Chúng tôi đồng hành<br>cùng bạn để kiến tạo <br>giải pháp</p>
     </div>
   </div>
-    <div class="collab-right">
-      <h3>Khách hàng tin tưởng</h3>
-      <p class="subtext">Sự tin tưởng của khách hàng là giá trị cốt lõi của chúng tôi</p>
+  <div class="collab-right">
+  <div class="text-block">
+    <h3>Khách hàng<br>tin tưởng</h3>
+    <p class="subtext">Sự tin tưởng của khách<br>hàng là giá trị cốt lõi của<br>chúng tôi</p>
+  </div>
 
-      <div class="stats">
-        <div class="stat-item">
-          <h2>100+</h2>
-          <p>Hoàn thành dự án</p>
-        </div>
-        <div class="stat-item">
-          <h2>1,230</h2>
-          <p>Khách hàng tin tưởng</p>
-        </div>
-      </div>
-
-      <button class="btn-collab">Bắt đầu hợp tác</button>
+  <div class="stats">
+    <div class="stat-item">
+      <h2>100+</h2>
+      <p>Hoàn thành dự án</p>
     </div>
-  </section>
+    <div class="stat-item">
+      <h2>1,230</h2>
+      <p>Khách hàng tin tưởng</p>
+    </div>
+  </div>
 
-  <!-- Commitment Section -->
+  <button  @click="goToServiceList" class="btn-collab">Bắt đầu hợp tác</button>
+</div>
+  </section>
   <section class="commitment">
     <div class="commitment-left">
       <h4>Cam kết chất lượng</h4>
-      <h2>Làm việc nhanh chóng là chất lượng của chúng tôi</h2>
+      <h2>Làm việc nhanh chóng là chất<br>lượng của chúng tôi</h2>
       <p>
-        Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu mà không làm giảm chất lượng.
-        Với quy trình hiệu quả và đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh chóng và đáng tin cậy.
+        Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu<br>mà không làm giảm chất lượng.
+        Với quy trình hiệu quả và<br>đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh<br>chóng và đáng tin cậy.
       </p>
     </div>
 
@@ -121,27 +120,37 @@
         </div>
       </div>
 
-      <div class="project-item small">
-        <img src="../assets/bangphattrien.png" alt="bang phat trien">
+      <div class="project-item">
+        <img src="../assets/5.png" alt="bang phat trien">
       </div>
     </div>
   </section>
 
   <!-- About Us Section -->
   <section class="about-us">
-    <div class="about-left">
-      <div class="circle big">
-        <img src="../assets/customer.png" alt="Hợp tác phát triển">
+    <div class="customer-section">
+      <div class="circle circle-main">
+        <span>200+<br><small>Khách hàng<br>hài lòng</small></span>
+      </div>
+      <div class="circle circle-top-right">
+        <img src="../assets/image - 13.png" alt="Group khách hàng">
+      </div>
+      <div class="circle circle-left">
+        <img src="../assets/6.png" alt="Bắt tay khách hàng">
+      </div>
+      <div class="circle circle-bottom-left">
+        <img src="../assets/7.png" alt="Cuộc họp khách hàng">
       </div>
     </div>
+
 
     <div class="about-right">
       <h4>Về chúng tôi</h4>
       <h2>Sự tin tưởng của khách hàng ngày càng vững chắc</h2>
       <p>
-        Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt nhất, được khách hàng tin tưởng theo thời gian.
+        Chúng tôi không ngừng nỗ lực để mang đến giải pháp tốt<br> nhất, được khách hàng tin tưởng theo thời gian.
       </p>
-      <a href="#" class="btn-primary">Bắt đầu ngay</a>
+      <a href="/servicelist" class="btn-primary">Bắt đầu ngay</a>
     </div>
   </section>
 
@@ -157,7 +166,7 @@
 
     <div class="projects-grid">
       <div class="project-item big">
-        <img src="../assets/Websitedesgin.jpg" alt="Website Thẩm mỹ">
+        <img src="../assets/project-1.png" alt="Website Thẩm mỹ">
         <div class="project-info">
           <h3>Website Thẩm mỹ</h3>
           <p>Giao diện sang trọng, tinh tế, tôn vinh vẻ đẹp và thương hiệu. Tối ưu trải nghiệm người dùng với hình ảnh chất lượng cao, bố cục hài hòa và màu sắc thu hút.</p>
@@ -165,7 +174,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitedoan.jpg" alt="Website bán hàng">
+        <img src="../assets/project-2.png" alt="Website bán hàng">
         <div class="project-info">
           <h3>Website bán hàng</h3>
           <p>Giao diện hiện đại, dễ dùng, tạo cảm giác tin cậy, thúc đẩy hành vi mua sắm, tối ưu doanh số.</p>
@@ -173,7 +182,7 @@
       </div>
 
       <div class="project-item small">
-        <img src="../assets/websitephongthuy.jpg" alt="Website phong thủy">
+        <img src="../assets/project-3.png" alt="Website phong thủy">
         <div class="project-info">
           <h3>Website phong thủy</h3>
           <p>Thiết kế cân bằng giữa yếu tố truyền thống và hiện đại, tạo cảm giác bình yên, tin cậy cho khách hàng.</p>
@@ -182,12 +191,9 @@
     </div>
 
     <div class="projects-button">
-      <a href="#" class="btn-primary">Khám phá dự án của chúng tôi</a>
+      <a href="/servicelist" class="btn-primary">Khám phá dự án của chúng tôi</a>
     </div>
   </section>
-
-  <!-- Inspiration Section -->
-  <!-- Inspiration Section -->
 <section class="inspiration">
     <div class="inspiration-header">
       <div class="inspiration-text">
@@ -199,69 +205,84 @@
         </p>
       </div>
       <div class="inspiration-button">
-        <a href="#" class="btn-primary">Xem dự án</a>
+        <a href="/servicelist" class="btn-primary">Xem dự án</a>
       </div>
     </div>
   
     <div class="inspiration-gallery">
       <div class="carousel-track">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-    </div>
+      <img src="../assets/image-2.png" alt="UI 1" loading="lazy"> 
+      <img src="../assets/image-5.png" alt="UI 2" loading="lazy"> 
+      <img src="../assets/image-3.png" alt="UI 3" loading="lazy">
+      <img src="../assets/image-4.png" alt="UI 4" loading="lazy">
+      <img src="../assets/image.png" alt="UI 5" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 6" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 7" loading="lazy"> 
+      <img src="../assets/image.png" alt="UI 8" loading="lazy">
+      <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+      <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+</div>
     <div class="carousel-track-right">
-        <img src="../assets/hinh1.jpg" alt="UI 1" loading="lazy">
-        <img src="../assets/hinh2.jpg" alt="UI 2" loading="lazy">
-        <img src="../assets/hinh3.jpg" alt="UI 3" loading="lazy">
-        <img src="../assets/hinh4.jpg" alt="UI 4" loading="lazy">
-        <img src="../assets/hinh5.jpg" alt="UI 5" loading="lazy">
-        <img src="../assets/hinh6.jpg" alt="UI 6" loading="lazy">
-        <img src="../assets/hinh7.jpg" alt="UI 7" loading="lazy">
-        <img src="../assets/hinh8.jpg" alt="UI 8" loading="lazy">
-      </div>
+    <img src="../assets/image-7.png" alt="UI 1" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 2" loading="lazy">
+    <img src="../assets/image-2.png" alt="UI 3" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 4" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 5" loading="lazy">
+    <img src="../assets/image-4.png" alt="UI 6" loading="lazy">
+    <img src="../assets/image-3.png" alt="UI 7" loading="lazy">
+    <img src="../assets/image.png" alt="UI 8" loading="lazy">
+    <img src="../assets/image-7.png" alt="UI 9" loading="lazy">
+    <img src="../assets/image-6.png" alt="UI 10" loading="lazy">
+ </div>
     </div>
   </section>
-  
-
-  <!-- Testimonial Section -->
-  <section class="testimonial">
+    <section class="testimonial">
     <div class="testimonial-header">
       <h4>Những gì khách hàng nhận xét</h4>
       <h2>Thành tựu nổi bật</h2>
       <p>Những cột mốc quan trọng, khẳng định chất lượng và sự tin tưởng của khách hàng</p>
     </div>
-
-    <div class="testimonial-content">
+<!-- Dùng cho PC -->
+    <div class="testimonial-pc">
       <button class="testimonial-nav prev">←</button>
+
       <div class="testimonial-main">
-        <img src="../assets/google.png" alt="Google" class="testimonial-logo">
+        <img src="../assets/google.png" alt="Google" class="testimonial-logo" />
         <p class="testimonial-quote">
-          “Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty.
-          Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả.
-          Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể.
-          Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!”
-        </p>
+          Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!        </p>
         <div class="testimonial-author">
           <h4>Anh Minh</h4>
           <p>CEO Công ty Thương mại Điện tử</p>
         </div>
       </div>
+
       <button class="testimonial-nav next">→</button>
+    </div>
+
+    <!-- Dùng cho Mobile -->
+    <div class="testimonial-mobile">
+      <div class="testimonial-main">
+        <img src="../assets/google.png" alt="Google" class="testimonial-logo" />
+        <p class="testimonial-quote">
+          Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!        </p>
+        <div class="testimonial-author">
+          <h4>Anh Minh</h4>
+          <p>CEO Công ty Thương mại Điện tử</p>
+        </div>
+      </div>
+      <div class="testimonial-nav-wrapper">
+        <button class="testimonial-nav prev">←</button>
+        <button class="testimonial-nav next">→</button>
+      </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
   <section class="cta">
     <div class="cta-content">
       <h3>Đồng Hành Cùng Sea Dragon Technology</h3>
-      <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
-      <a href="#" class="btn-secondary">Đặt lịch tư vấn</a>
+      <p>Chúng tôi cam kết mang đến những giải pháp công nghệ tiên tiến, giúp bạn nhanh<br>chóng phát triển bền vững với chất lượng vượt trội và sự tin cậy tuyệt đối.</p>
     </div>
+    <a href="/servicelist" class="btn-secondary">Đặt lịch tư vấn</a>
   </section>
   
 </template>
@@ -269,16 +290,57 @@
 export default {
   name: 'HomePage',
   mounted() {
-    const track = document.querySelector('.carousel-track');
-      track.addEventListener('mouseover', () => {
-      track.style.animationPlayState = 'paused';
+  const testimonials = [
+    {
+      quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này trong dự án phát triển nền tảng thương mại điện tử của công ty. Điều làm tôi ấn tượng nhất là cách họ thấu hiểu nhu cầu và biến những yêu cầu phức tạp thành một giải pháp dễ sử dụng nhưng đầy hiệu quả. Từ giao diện mượt mà đến tốc độ xử lý nhanh chóng, website của chúng tôi giờ đây không chỉ thu hút khách hàng mà còn giúp tăng doanh thu đáng kể. Đội ngũ luôn sẵn sàng hỗ trợ và đảm bảo mọi thứ hoạt động ổn định. Tôi chắc chắn sẽ tiếp tục hợp tác trong các dự án tiếp theo!”",
+      author: "Anh Minh",
+      position: "CEO Công ty Thương mại Điện tử",
+    },
+    {
+      quote: "“Chúng tôi đã hợp tác với đội ngũ thiết kế website này để xây dựng nền tảng thương mại điện tử cho công ty. Tôi rất ấn tượng với sự sáng tạo và chuyên môn của họ khi biến những yêu cầu khắt khe của chúng tôi thành một trang web dễ dàng sử dụng nhưng vẫn đầy đủ tính năng. Từ việc tối ưu hóa giao diện, cải thiện tốc độ tải trang đến nâng cao khả năng tương tác, trang web của chúng tôi không chỉ mang đến trải nghiệm tốt cho khách hàng mà còn giúp gia tăng tỷ lệ chuyển đổi và doanh thu. Đội ngũ luôn chu đáo và sẵn sàng hỗ trợ bất kỳ lúc nào. Tôi rất mong chờ cơ hội hợp tác tiếp theo!”",
+      author: "Lan Anh",
+      position: "CEO Công ty Thương mại Điện tử",
+    }
+  ];
+
+  let currentTestimonialIndex = 0;
+
+  const prevButtons = document.querySelectorAll('.testimonial-nav.prev');
+  const nextButtons = document.querySelectorAll('.testimonial-nav.next');
+  const quoteEls = document.querySelectorAll('.testimonial-quote');
+  const authorEls = document.querySelectorAll('.testimonial-author h4');
+  const positionEls = document.querySelectorAll('.testimonial-author p');
+
+  function updateTestimonial(index) {
+    const testimonial = testimonials[index];
+    quoteEls.forEach(el => el.textContent = testimonial.quote);
+    authorEls.forEach(el => el.textContent = testimonial.author);
+    positionEls.forEach(el => el.textContent = testimonial.position);
+  }
+
+  prevButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
-    track.addEventListener('mouseout', () => {
-      track.style.animationPlayState = 'running';
+  });
+
+  nextButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
     });
+  });
+},
+methods: {
+  goToServiceList() {
+    this.$router.push('/servicelist');
   }
 }
+
+}
 </script>
+
 <style scoped>
 * {
     margin: 0;
@@ -287,9 +349,9 @@ export default {
   }
   
   body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: #5D5D5D;
   }
   
   .header {
@@ -327,8 +389,8 @@ export default {
 .arrow-icon {
   position: absolute;
   transform: rotate(180deg) scaleX(-1);
-  top: -35px;
-  left: 120px;
+  top: -50px;
+  left: 80px;
   width: 40px;
   height: auto;
 }
@@ -391,7 +453,7 @@ export default {
   }
   
   .hero {
-    height:780px;
+  height:900px;
   position: relative;
   text-align: center;
   padding: 60px 20px 0 20px;
@@ -433,8 +495,8 @@ export default {
 .arrow-icon-left {
   position: absolute;
   transform: rotate(180deg);
-  top: -20px;
-  left: 300px;
+  top: 20px;
+  left: 180px;
   width: 40px;
   height: auto;
 }
@@ -452,7 +514,7 @@ export default {
 
 .chart-legend {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   font-size: 14px;
 }
@@ -534,12 +596,14 @@ export default {
     font-weight: bold;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons {
     margin: 40px 0;
     position: relative; 
     z-index: 2;
+    justify-content: center;   
   }
   
   .social-icons a img {
@@ -548,7 +612,7 @@ export default {
   }
   
   .partners {
-    margin-top: 120px;
+    margin-top: 140px;
     font-size: 18px;
     position: relative; 
     z-index: 2;
@@ -556,14 +620,14 @@ export default {
   
   .partners img {
     width: 180px;
-    margin: 50px;
+    margin: 60px;
   }
   
   .collaboration {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     padding: 60px 20px;
     background: #fff;
     width: 1400px;
@@ -585,7 +649,20 @@ export default {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
+.collab-left-content::after {
+  content: '';
+  position: absolute;
+  top : 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 370px;
+  height: 300px;
+  background: linear-gradient(to bottom, rgba(231, 231, 231, 1) 0%, rgba(248, 248, 248, 0) 50%, rgba(248, 248, 248, 1) 100%);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
 .collab-left img {
   position: absolute;
   top: 0;
@@ -594,8 +671,8 @@ export default {
   height: 300px;
   object-fit: cover;
   display: block;
-  z-index: 2; /* z-index cao hơn để hình nằm trên */
-  transform: scaleX(-1); /* Lật ngang */
+  z-index: 2; 
+  transform: scaleX(-1); 
 }
 
 .collab-left-content {
@@ -621,38 +698,43 @@ export default {
 }
 
 .collab-left-content h2 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 15px;
 }
 
 .collab-left-content p {
   left:20px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.8;
 }
-
-  .collab-right {
-    flex: 1;
-    width: 1000px;
-    height: 300px; 
-    padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .collab-right h3 {
-    font-size: 24px;
+.collab-right {
+  display: flex;
+  width: 900px;
+  height: 300px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-direction: row;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.collab-right h3 {
+    font-size: 32px;
     color: #333;
     margin-bottom: 10px;
-  }
+}
+.collab-right{
+  line-height: 1.6;
+  font-size:16px;
+}
   
-  .collab-right .subtext {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 30px;
-  }
-  
+.collab-right .text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
   .stats {
     display: flex;
     justify-content: space-around;
@@ -666,23 +748,26 @@ export default {
   
   .stat-item h2 {
     color: #1a73e8;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 600;
   }
   
   .stat-item p {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
   }
   
   .btn-collab {
     background-color: #1a73e8;
     color: white;
+    width:180px;
+    height:60px;
     padding: 12px 24px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
+    font-size:16px;
     box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
     transition: background 0.3s;
   }
@@ -695,41 +780,47 @@ export default {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 50px;
-    padding: 80px 20px;
+    padding: 40px 20px;
     background: #fff;
-    max-width: 1100px;
+    width: 1350px;
     margin: 0 auto;
   }
   
   .commitment-left {
     flex: 1;
+    padding-top:80px;
   }
   
   .commitment-left h4 {
     color: #999;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
   
   .commitment-left h2 {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #333;
+    line-height:42px;
   }
   
   .commitment-left p {
     font-size: 16px;
     color: #666;
+    line-height:32px;
   }
   
-  .commitment-right {
+.commitment-right {
     flex: 1;
     position: relative;
-  }
-  
+}
+.project-item img {
+  height: 400px; 
+  object-fit: cover; 
+}
   .timeline-header {
     display: flex;
+    margin-right:40px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
@@ -827,44 +918,97 @@ export default {
     justify-content: center;
     align-items: flex-start;
     gap: 50px;
-    padding: 80px 20px;
+    padding: 20px 20px;
     background: #fff;
-    max-width: 1100px;
+    max-width: 1400px;
+    height:600px;
     margin: 0 auto;
   }
   
-  .about-left {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .circle.big {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .circle.big img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
+  .customer-section {
+  position: relative;
+  width: 700px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circle-main {
+  width: 160px;
+  height: 160px;
+  background-color: #0057e7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  left: 270px;
+  top: 220px;
+  z-index: 2;
+  position: absolute; 
+  border: 6px solid white; 
+  border-radius: 50%;      
+}
+
+
+.circle-main small {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.circle-top-right {
+  width: 320px;
+  height: 320px;
+  top: 10px;
+  right: 60px;
+  z-index: 1;
+}
+
+.circle-left {
+  width: 220px;
+  height: 220px;
+  top: 170px;
+  left: 100px;
+  z-index: 1;
+}
+
+.circle-bottom-left {
+  width: 140px;
+  height: 140px;
+  bottom: 110px;
+  left: 290px;
+  z-index: 3
+}
+
   .about-right {
     flex: 1;
+    padding:100px 140px 100px 20px;
   }
   
   .about-right h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 10px;
   }
   
   .about-right h2 {
-    font-size: 28px;
+    font-size: 36px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -873,6 +1017,7 @@ export default {
     font-size: 16px;
     color: #666;
     margin-bottom: 30px;
+    line-height: 28px;
   }
   
   .btn-primary {
@@ -891,19 +1036,19 @@ export default {
   }
   
   .projects {
-    padding: 100px 20px;
-    background: #f9fafc;
+    padding: 10px 20px;
+    background: white;
     text-align: center;
   }
   
   .projects-header h4 {
     font-size: 14px;
     color: #999;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .projects-header h2 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -913,16 +1058,16 @@ export default {
     color: #666;
     max-width: 600px;
     margin: 0 auto 50px;
+    line-height:28px;
   }
   
   .projects-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 1100px;
+    width: 1100px;
     margin: 0 auto 40px;
   }
-  
   .project-item {
     position: relative;
     overflow: hidden;
@@ -937,22 +1082,28 @@ export default {
   }
   
   .project-info {
-    position: absolute;
-    bottom: 0;
-    padding: 20px;
-    color: #fff;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  }
-  
-  .project-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .project-info p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+.project-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: left; 
+  padding-left:10px;  
+}
+
+.project-info p {
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: justify; 
+  line-height:28px;
+  padding-left:10px;
+  padding-right:30px;
+}
+
   
   .project-item.small {
     height: 250px;
@@ -968,27 +1119,27 @@ export default {
   }
   
   .inspiration {
-    padding: 100px 20px;
+    padding: 60px 20px 20px 40px;
     background: #ffffff;
   }
-  
   .inspiration-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto 50px;
+    padding: 0 60px;
   }
   
   .inspiration-text h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 10px;
   }
   
   .inspiration-text h2 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
     color: #333;
   }
@@ -997,84 +1148,83 @@ export default {
     font-size: 16px;
     color: #666;
     max-width: 600px;
+    line-height:28px;
   }
   
   .inspiration-button .btn-primary {
-    margin-top: 20px;
+    margin-top: 160px;
   }
   
   .inspiration-gallery {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
     display: block;
   }
   
-  .carousel-track, 
-  .carousel-track-right { 
-      display: flex; 
-      animation: slide-left 25s linear infinite; 
-      animation-direction: alternate; 
-      margin-bottom: 20px; 
+  .inspiration-gallery {
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+.carousel-track,
+.carousel-track-right {
+  display: flex;
+  animation: slide-left 25s linear infinite;
+  animation-direction: alternate;
+  margin-bottom: 20px;
+  white-space: nowrap; 
+}
+
+.carousel-track-right {
+  animation-name: slide-right;
+}
+
+.carousel-track img,
+.carousel-track-right img {
+  width: 250px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0%);
   }
-  
-  .carousel-track-right {
-    animation: slide-right 25s linear infinite;
-    animation-direction: alternate;
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .carousel-track img,
-  .carousel-track-right img {
-    width: 250px;
-    height: 200px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-right: 20px;
-    flex-shrink: 0;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  @keyframes slide-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(0);
   }
-  
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
-  
-  
-  
-  .carousel-track:hover,
-  .carousel-track-right:hover {
-    animation-play-state: paused;
-  }
-  
+}
   .testimonial {
-    padding: 100px 20px;
-    background: #fff;
+    padding: 0 20px;
+    background: white;
     text-align: center;
   }
   
   .testimonial-header h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .testimonial-header h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 30px;
     color: #333;
+    line-height:28px;
   }
   
   .testimonial-header p {
@@ -1083,85 +1233,454 @@ export default {
     margin-bottom: 50px;
   }
   
-  .testimonial-content {
+  .testimonial-pc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-main {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.testimonial-logo {
+  max-width: 100px;
+  margin-bottom: 20px;
+} 
+
+.testimonial-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.testimonial-author h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.testimonial-author p {
+  margin: 5px 0 0;
+  font-style: italic;
+}
+  
+  .testimonial-nav {
+  background: none;
+  border: 2px solid #007BFF;
+  color: #007BFF;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  padding-bottom:1px;
+}
+  
+  .cta {
+  margin: 40px 0 40px 0;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #1e90ff, #007bff);
+  border-radius: 20px;
+  color: white;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;              
+  align-items: center;        
+  justify-content: space-between; 
+  gap: 30px;                  
+  text-align: left;
+}
+
+.cta-content {
+  flex: 1;
+}
+
+.cta-content h3 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  margin-bottom: 0;
+  line-height: 28px;
+}
+
+.btn-secondary {
+  background: white;
+  color: #007BFF;
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+    background: #e6e6e6;
+}
+@media (max-width: 1440px) {
+  .collaboration,
+  .commitment,
+  .about-us,
+  .inspiration-header,
+  .inspiration-gallery {
+    max-width: 1200px;
+    width: 90%;
+  }
+  .projects-grid {
+    width: 90%;
+  }
+  .testimonial-pc {
+    display: none;
+  }
+  .testimonial-mobile {
     display: flex;
-    align-items: center;
+  }
+  .testimonial-nav-wrapper{
+    display: flex;
+    gap:40px;
+  }
+  .hero{
+    height: 850px;
+    padding-bottom: 40px;
+  }
+  .hero::before{
+    display:flex;
+    margin-top :50px;
+    width: 1200px;
+  }
+  .partners{
+    margin-top:100px;
+  }
+}
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 40px;
+  }
+  .hero{
+    height: 1300px;
+    padding-bottom: 40px;
+  }
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .collaboration {
+    flex-direction: column;
+    width: 90%;
+    padding: 40px 20px;
+  }
+  
+  .collab-right {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .commitment {
+    flex-direction: column;
+    width: 90%;
+    gap: 40px;
+  }
+  
+  .commitment-left {
+    padding-top: 20px;
+  }
+  
+  .about-us {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+  }
+  
+  .about-right {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .customer-section {
+    width: 100%;
+    height: 500px;
+    margin-top:0
+  }
+  .services{
+    padding: 80px 20px 0 20px;
+    gap:40px;
+  }
+  .trusted-box{
+    margin-top:-60px;
+  } 
+  .hero::before{
+    display:flex;
+    margin-top :200px;
+  }
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+  }
+
+}
+
+@media (max-width: 992px) {
+  .hero {
+    height: auto;
+    padding-bottom: 60px;
+  }
+  
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-item.big {
+    height: 250px;
+    grid-row: span 1;
+  }
+  
+  .inspiration-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .inspiration-button .btn-primary {
+    margin-top: 20px;
+  }
+  .hero::before {
+    height:300px;
+    top:940px;
+  }
+  .testimonial-content {
+    flex-direction: column;
+  }
+
+  .testimonial-nav {
+    order: unset; 
+    padding-bottom:2px;
+  }
+
+  .testimonial-main {
+    text-align: center;
+    padding: 0 10px;
+  }
+  .circle-top-right{
+    top: 10px;
+    right:10px;
+
+  }
+  .circle-bottom-left{
+    bottom:15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  
+  .services {
+    padding: 80px 5px 0 40px;
+  }
+
+  .services li {
+    flex: 1 1 30%; 
+    max-width: 150px;
+  }
+  
+  .partners img {
+    margin: 10px 10px;
+    width: 120px;
+  }
+  
+  .collab-left {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .collab-left-content h2 {
+    font-size: 24px;
+  }
+  
+  .stats {
+    flex-direction: column;
     gap: 20px;
   }
   
-  .testimonial-main {
-    max-width: 700px;
-  }
-  
-  .testimonial-logo {
-    width: 120px;
-    margin-bottom: 20px;
-  }
-  
-  .testimonial-quote {
-    font-size: 18px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .testimonial-author h4 {
-    font-size: 20px;
-    color: #007BFF;
-  }
-  
-  .testimonial-author p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .testimonial-nav {
-    background: none;
-    border: 2px solid #007BFF;
-    color: #007BFF;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
+  .testimonial-content {
+    flex-direction: column;
   }
   
   .cta {
-    margin-top: 80px;
-    padding: 40px 20px;
-    background: linear-gradient(to right, #1e90ff, #007bff);
-    border-radius: 20px;
-    color: white;
+    flex-direction: column;
     text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 30px 20px;
+  }
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    top:-20px;
+  }
+}
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 28px;
   }
   
-  .cta-content h3 {
-    font-size: 26px;
-    margin-bottom: 10px;
+  .hero-text .description {
+    font-size: 14px;
   }
   
-  .cta-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
+  .trusted-box{
+    margin-top:-40px;
+    width: 100%;
+  } 
+  .growth-box {
+    width: 100%;
   }
   
-  .btn-secondary {
-    display: inline-block;
-    background: white;
-    color: #007BFF;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
+  .arrow-icon {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg) scaleX(-1);
   }
   
-  .btn-secondary:hover {
-    background: #e6e6e6;
+  .arrow-icon-left {
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    top:-20px;
   }
-</style>
+  .partners{
+    margin-top: 10px;
+    margin-bottom:-30px;
+  }
+  
+  .partners img {
+    width: 100px;
+    margin: 10px;
+  }
+  
+  .collab-right h3 {
+    font-size: 24px;
+  }
+  
+  .commitment-left h2,
+  .about-right h2 {
+    font-size: 28px;
+  }
+  
+  .projects-header h2,
+  .inspiration-text h2,
+  .testimonial-header h2 {
+    font-size: 32px;
+  }
+  
+  .circle-main {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .circle-top-right {
+    right: 20px;
+    width: 250px;
+    height: 250px;
+    left:140px;
+    top: 60px;
+  }
+  
+  .circle-left {
+    left: -40px;
+    width: 180px;
+    height: 180px;
+  }
+  
+  .circle-bottom-left {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+  }
+  
+  .carousel-track img,
+  .carousel-track-right img {
+    width: 200px;
+    height: 150px;
+  }
+  .timeline-header{
+    width:350px;
+    margin:0 auto;
 
+  }
+  .hero::before{
+    display:flex;
+    margin-top :80px;
+    width: 380px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  
+  .btn-start,
+  .btn-schedule,
+  .btn-collab,
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social-icons a img {
+    width: 30px;
+    margin-bottom:-20px;
+  }
+  
+  .partners img {
+    width: 80px;
+  }
+  
+  .collab-left-content h2 {
+    font-size: 20px;
+  }
+  
+  .collab-right h3 {
+    font-size: 20px;
+  }
+  
+  .testimonial-quote {
+    font-size: 16px;
+  }
+  .hero::before{
+    display:flex;
+    margin-top :50px;
+    width: 400px;
+  }
+}
+</style>

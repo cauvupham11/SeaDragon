@@ -2,7 +2,7 @@
     <div class="container">
       <div class="header">
         <h1>Tin tức</h1>
-        <img :src="require('@/assets/nen.png')" alt="Header Image" />
+          <img :src="require('@/assets/nen.png')" alt="Header Image" />
       </div>
   
       <div class="search-bar">
@@ -15,7 +15,9 @@
           :key="index" 
           class="news-item"
         >
-          <img :src="item.image" alt="News Image" />
+          <router-link to="/detailnew">
+            <img :src="item.image" alt="News Image" />
+          </router-link>
           <div class="news-content">
             <div class="category">{{ item.category }}</div>
             <h3>{{ item.title }}</h3>
@@ -162,9 +164,9 @@ body {
   display: flex;
   width: 60%;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   position: absolute;
-  top: 265px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -174,6 +176,7 @@ body {
   padding: 12px 15px;
   font-size: 1em;
   border: 1px solid #ccc;
+  color:black;
   border-radius: 20px;
   outline: none;
   background-color: #fff;
@@ -183,10 +186,11 @@ body {
   padding-left: 45px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   height: 80px;
+  z-index: 10;
 }
 
 .search-bar input::placeholder {
-  color: #999;
+  color: black;
 }
 
 .news-grid {
@@ -195,7 +199,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
 .news-item {
   background-color: #fff;
   border-radius: 8px;
@@ -209,7 +212,6 @@ body {
 .news-item:hover {
   transform: translateY(-5px);
 }
-
 .news-item img {
   width: 100%;
   height: 226px;
@@ -241,6 +243,27 @@ body {
   color: #666;
   line-height: 1.5;
 }
+@media (max-width: 1440px) {
+  .container {
+    margin: 50px auto;
+  }
+
+  .header h1 {
+    font-size: 5vw;
+  }
+
+  .search-bar {
+    width: 50%;
+    top: 260px;
+  }
+  .news-content h3 {
+    font-size: 18px;
+  }
+
+  .news-content p {
+    font-size: 14px;
+  }
+}
 
 @media (max-width: 768px) {
   .contain-secction{
@@ -258,7 +281,8 @@ body {
   }
 
   .search-bar {
-    width: 80%;
+    top:270px;
+    width: 50%;
   }
 
   .news-grid {
@@ -266,7 +290,8 @@ body {
   }
 
   .news-item img {
-    height: 150px;
+    margin:20px;
+    height: 240px;
   }
 
   .news-content h3 {
@@ -283,6 +308,12 @@ body {
     height: 60px;
     padding: 10px 15px;
     padding-left: 40px;
+  }
+  @media (max-width:440){
+    .search-bar{
+      width: 80%;
+      top: 1000px;
+    }
   }
 }
 </style>

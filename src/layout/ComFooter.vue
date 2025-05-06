@@ -34,27 +34,28 @@
                             d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                     </svg></a>
             </div>
-            <div class="img_auth">
-                <img src="/images/img_authen.png" alt="">
-            </div>
-
-
         </div>
         <div class="contain_column">
             <section class="contact-section">
                 <h2 class="contact-title">Liên hệ với chúng tôi</h2>
                 <ul class="contact-info">
                     <li>
-                        <img src="/images/location.png" alt="Location" class="icon">
-                        194 đường số 7, Khu dân cư Trung Sơn, xã Bình Hưng, huyện Bình Chánh, TPHCM.
+                        <a href="https://www.google.com/maps?q=194+đường+số+7,+Khu+dân+cư+Trung+Sơn,+xã+Bình+Hưng,+huyện+Bình+Chánh,+TPHCM" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/location.png" alt="Location" class="icon">
+                            194 đường số 7, Khu dân cư Trung Sơn, xã Bình Hưng, huyện Bình Chánh, TPHCM.
+                        </a>
                     </li>
                     <li>
-                        <img src="/images/logoemail3.png" alt="Email" class="icon">
-                        Email: congngherongbien@gmail.com
+                        <a href="mailto:congngherongbien@gmail.com">
+                            <img src="/images/envelope.png" alt="Email" class="icon">
+                            Email: congngherongbien@gmail.com
+                        </a>
                     </li>
                     <li>
-                        <img src="/images/phone.png" alt="Phone" class="icon">
-                        Hotline: 0931494389
+                        <a href="tel:0931494389">
+                            <img src="/images/phone-call.png" alt="Phone" class="icon">
+                            Hotline: 0931494389
+                        </a>
                     </li>
                 </ul>
             </section>
@@ -72,8 +73,10 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0158478569683!2d106.68744887451673!3d10.733260859989516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fbaee249739%3A0x4485210532f2e667!2zMTk0IMSQLiBz4buRIDcsIEtodSBkw6JuIGPGsCBUcnVuZyBTxqFuLCBCw6xuaCBDaMOhbmgsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1745835347718!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
+        <div class="img_auth">
+                <img src="/images/img_authen.png" alt="">
+        </div>
     </div>
-
 </footer>
 </template>
   
@@ -103,7 +106,7 @@
 }
 
 .contain_footer {
-    max-width: 1482px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -185,7 +188,7 @@
 
 .contact-section {
     background-color: #f9fbfd;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     margin-top: 40px;
     border-radius: 8px;
     height: auto;
@@ -202,23 +205,26 @@
 
 .contact-info {
     list-style: none;
-    margin-top:25px;
+    margin-top: 25px;
+    padding: 0;
 }
 
 .contact-info li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-    color: #383838;
-    font-size: 14px;
-    font-size:16px;
-    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
 }
 
+.contact-info a {
+    display: flex;
+    align-items: center;
+    color: #383838;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
 .icon {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 10px; 
     flex-shrink: 0;
 }
 
@@ -236,17 +242,13 @@
     transition: color 0.3s ease;
 }
 
-.policy-links a:hover {
-    color: #DCF0FF;
-    text-decoration: underline;
-}
-
 iframe {
     width: 100%;
     height: 100%;
     border: 0;
     border-radius: 8px;
 }
+
 
 @media (max-width: 1200px) {
     .contain_footer {
@@ -256,7 +258,16 @@ iframe {
     
     .contain_column {
         min-width: 200px;
+        margin-left:20px;
     }
+    .img_auth {
+        margin-top:230px;
+        margin-bottom:0;
+    }
+    .contain_Address {
+        margin-left:20px;
+    }
+
 }
 
 @media (max-width: 992px) {
@@ -281,12 +292,33 @@ iframe {
     }
     
     .contact-section {
-        padding: 15px;
+        margin-top:10px;
+        margin-left:0;
     }
     
     .contact-info li {
         font-size: 13px;
     }
+    .contain_policy {
+        margin-right:540px;
+        margin-top:0;
+    }
+    .contain_Address {
+        margin-top:10px;
+        margin-right:290px;
+    }
+    .img_auth {
+        margin-right:580px;
+        margin-top:10px;
+        margin-bottom:0;
+    }
+}
+@media (max-width: 480px){
+    .contain_Address {
+        margin-top:10px;
+        margin-right:0;
+        margin-left:10px;
+    }  
 }
 
 @media (max-width: 480px) {
@@ -300,19 +332,31 @@ iframe {
     }
     
     .img_auth {
-        text-align: center;
+        margin-right:250px;
+        margin-top:10px;
+        margin-bottom:0;
     }
-    
     .contact-info li {
         align-items: center;
     }
     .contain_Address {
-        margin-top:10px;
+        margin-top:40px;
     }
     .contain_policy {
+        margin-right:220px;
         margin-top:0;
     }
 
+    @media (max-width: 400px) {
+        .img_auth {
+        margin-right:210px;
+        }
+        .contain_policy {
+        margin-right:180px;
+        margin-top:0;
+        margin-left:20px;
+    }
+    }
 }
 </style>
   
