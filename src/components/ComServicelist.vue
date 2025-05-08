@@ -19,9 +19,10 @@
     <!-- Cards -->
     <div class="card-group">
       <div class="card" v-for="(card, index) in currentCards" :key="index">
-        <img :src="card.image" :alt="card.title" />
+        <img :src="getImageUrl(card.image)" :alt="card.title" />
         <h2>{{ card.title }}</h2>
         <p class="price">{{ card.price }}</p>
+        <p class="description">{{ card.description }}</p>
         <button class="start-btn">Bắt đầu</button>
         <div class="features-box">
           <ul>
@@ -36,6 +37,8 @@
 </template>
 
 <script>
+import ProductService from '@/api/productService';
+
 export default {
   data() {
     return {
@@ -47,374 +50,68 @@ export default {
         agency: "Agency",
       },
       cards: {
-        website: [
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-          image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/iconweb.svg"),
-            title: "Gói Thiết Kế Website",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-        ],
-        app: [
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/icondt.svg"),
-            title: "Gói Thiết Kế App",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-        ],
-        agency: [
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-          {
-            image: require("@/assets/Agency.svg"),
-            title: "Gói Thiết Kế Agency",
-            price: "2.500.000đ",
-            features: [
-              "💡 Phong cách: Hiện đại, tối giản",
-              "🎨 Tư vấn thiết kế miễn phí",
-              "⏱️ Thời gian triển khai: 10-20 ngày",
-              "🛠️ Chỉnh sửa tối đa 3 lần",
-              "👷 Kiến trúc sư 1-3 năm kinh nghiệm",
-              "📦 Bàn giao: 3D + bản vẽ kỹ thuật",
-            ],
-          },
-        ],
+        website: [],
+        app: [],
+        agency: [],
       },
     };
   },
   computed: {
     currentCards() {
-      return this.cards[this.activeTab];
+      return this.cards[this.activeTab] || [];
+    }
+  },
+  methods: {
+    async fetchProducts() {
+      try {
+        const categoryId = this.getCategoryId(this.activeTab);
+        const products = await ProductService.getAllProducts(categoryId);
+
+        // Gán sản phẩm vào this.cards
+        this.cards[this.activeTab] = products.map(product => ({
+          image: this.getImageUrl(product.image),
+          title: product.title,
+          price: `${product.price}đ`,
+          features: product.features || [],
+          description: product.description || "Không có mô tả", // Thêm mô tả vào
+        }));
+
+        // In giá trị sau khi gán
+        // this.cards[this.activeTab].forEach(card => {
+        //   console.log("image:", card.image);
+        //   console.log("title:", card.title);
+        //   console.log("price:", card.price);
+        //   console.log("features:", card.features);
+        //   console.log("description:", card.description); // In mô tả
+        // });
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    },
+
+    getCategoryId(tab) {
+      const categoryMapping = {
+        app: 1,
+        website: 2,
+        agency: 11,
+      };
+      return categoryMapping[tab] || '';
+    },
+
+    getImageUrl(imagePath) {
+      imagePath = String(imagePath);
+      return imagePath.startsWith('http') ? imagePath : `${process.env.VUE_APP_BACKEND_API}${imagePath}`;
     },
   },
+  watch: {
+    activeTab: "fetchProducts", // Refetch products when the active tab changes
+  },
+  created() {
+    this.fetchProducts(); // Fetch initial data when component is created
+  }
 };
 </script>
+
 
 <style scoped>
 /* Section layout */

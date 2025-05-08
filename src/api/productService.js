@@ -113,7 +113,7 @@ const ProductService = {
 
     async deleteProducts(ids) {
         try {
-            const response = await apiService.delete('/products', {
+            const response = await apiService.delete('/v1/products', {
                 data: { ids }
             });
 

@@ -27,7 +27,7 @@ apiService.interceptors.response.use(response => {
   if (error.response?.status === 401) {
     // Có thể thêm logic refresh token ở đây nếu cần
     localStorage.removeItem('token')
-    window.location.href = '/login'
+    window.location.href = '/admin'
   }
   return Promise.reject(error)
 })

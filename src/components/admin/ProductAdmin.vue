@@ -25,8 +25,8 @@
         <tbody>
           <tr v-for="product in filteredProducts" :key="product.id">
             <td>
-              <!-- <img v-if="product.image" :src="getImageUrl(product.image)" class="product-image" alt="Product image"> -->
-              <!-- <span v-else>Không có ảnh</span> -->
+              <img v-if="product.image" :src="getImageUrl(product.image)" class="product-image" alt="Product image">
+              <span v-else>Không có ảnh</span>
             </td>
             <td>{{ product.title || product.name }}</td>
             <td>{{ product.category?.name || product.category_id }}</td>
@@ -90,7 +90,7 @@
                     <label for="image-upload" class="btn-upload">Chọn ảnh từ máy</label>
                   </div>
                   <div v-else class="preview-area">
-                    <!-- <img :src="previewImage || getImageUrl(productForm.image)" class="preview-image"> -->
+                    <img :src="previewImage || getImageUrl(productForm.image)" alt="product image" />
                     <button type="button" class="btn-remove-image" @click="removeImage">×</button>
                   </div>
                 </div>
@@ -147,11 +147,13 @@ const filteredProducts = ref([])
 const selectedCategoryId = ref('')
 
 const productForm = reactive({
+  id: null,
   title: '',
   description: '',
   price: 0,
   categoryId: 0,
   image: null,
+  isDeleted: false
 })
 
 // UI states
@@ -242,45 +244,60 @@ const showAddProductForm = () => {
 const editProduct = async (product) => {
   try {
     const productDetail = await getProductDetail(product.id)
-    productForm.value = { 
+    Object.assign(productForm, {
       ...productDetail,
-      categoryId: productDetail.category?.id || ''
-    }
-    previewImage.value = null
+      categoryId: productDetail.category?.id || productDetail.category_id || '',
+      title: productDetail.title || productDetail.name,
+      image: productDetail.image || null
+    })
+    previewImage.value = productDetail.image ? getImageUrl(productDetail.image) : null
     formTitle.value = 'Sửa sản phẩm'
     formSubmitButton.value = 'Cập nhật sản phẩm'
     showProductForm.value = true
   } catch (error) {
+    console.error('Không thể tải thông tin sản phẩm:', error)
     alert('Không thể tải thông tin sản phẩm')
   }
 }
-
 const saveProduct = async () => {
   try {
-      isLoading.value = true
-      const formData = new FormData()
-formData.append('title', productForm.title)
-formData.append('description', productForm.description)
-formData.append('price', Number(productForm.price))
-formData.append('categoryId', Number(productForm.categoryId))
-      formData.append('image',new Image(productForm.image))
-  
-
-    for (let [key, value] of formData.entries()) {
-  console.log(key, value)
-}
-  await ProductService.createProduct(formData) // Pass categoryId here
+    isLoading.value = true;
+    const formData = new FormData();
     
-    await fetchProducts(selectedCategoryId.value)
-    closeForm()
-    alert('Sản phẩm đã được lưu thành công!')
+    // Thêm các trường dữ liệu vào formData
+    formData.append('title', productForm.title);
+    formData.append('description', productForm.description);
+    formData.append('price', productForm.price.toString());
+    formData.append('categoryId', productForm.categoryId.toString());
+    
+    // Xử lý file ảnh đúng cách
+    if (productForm.image instanceof File) {
+      formData.append('image', productForm.image, productForm.image.name);
+    } else if (productForm.image) {
+      // Nếu image là đường dẫn (khi edit), không gửi lại
+      console.log('Image is a path, not sending again');
+    }
+
+    const response = await apiService.post('/v1/products', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+
+    await fetchProducts(selectedCategoryId.value);
+    closeForm();
+    alert('Sản phẩm đã được lưu thành công!');
+    return response.data;
   } catch (error) {
-    console.error('Failed to save product:', error)
-    alert('Lỗi khi lưu sản phẩm')
+    console.error('Lỗi khi lưu sản phẩm:', error);
+    alert(`Lỗi khi lưu sản phẩm: ${error.response?.data?.message || error.message}`);
+    throw error;
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
-}
+};
+
 const confirmDeleteProduct = (id) => {
   deleteProductId.value = id
   showDeleteConfirm.value = true
@@ -288,17 +305,27 @@ const confirmDeleteProduct = (id) => {
 
 const deleteProduct = async () => {
   try {
-    isLoading.value = true
-    await ProductService.deleteProducts([deleteProductId.value])
-    await fetchProducts()
-    alert('Xóa sản phẩm thành công!')
+    isLoading.value = true;
+    // Hiển thị loading hoặc disable nút trong lúc xử lý
+    
+    const productId = deleteProductId.value;
+    await ProductService.deleteProducts([productId]);
+    
+    // Cập nhật UI ngay lập tức mà không cần gọi API lại
+    filteredProducts.value = filteredProducts.value.filter(p => p.id !== productId);
+    products.value = products.value.filter(p => p.id !== productId);
+    
+    // Hoặc nếu muốn chắc chắn dữ liệu mới nhất từ server:
+    // await fetchProducts(selectedCategoryId.value);
+    
+    alert('Xóa sản phẩm thành công!');
   } catch (error) {
-    console.error('Failed to delete product:', error)
-    alert('Lỗi khi xóa sản phẩm')
+    console.error('Lỗi khi xóa sản phẩm:', error);
+    alert(`Lỗi khi xóa sản phẩm: ${error.response?.data?.message || error.message}`);
   } finally {
-    showDeleteConfirm.value = false
-    deleteProductId.value = null
-    isLoading.value = false
+    showDeleteConfirm.value = false;
+    deleteProductId.value = null;
+    isLoading.value = false;
   }
 }
 
@@ -318,7 +345,7 @@ const resetForm = () => {
     id: null, 
     categoryId: '', 
     title: '', 
-    image: '', 
+    image: null, 
     price: '', 
     description: '', 
     isDeleted: false 
@@ -329,11 +356,26 @@ const resetForm = () => {
   selectedFile.value = null
 }
 
-// Image handlers
-// const getImageUrl = (imagePath) => {
-//   if (!imagePath) return ''
-//   return imagePath.startsWith('http') ? imagePath : `${process.env.VUE_APP_BACKEND_API}${imagePath}`
-// }
+
+const getImageUrl = (imagePath) => {
+  if (!imagePath) return ''
+  
+  // Kiểm tra nếu imagePath là File object (khi upload ảnh mới)
+  if (imagePath instanceof File) {
+    return URL.createObjectURL(imagePath)
+  }
+  
+  // Kiểm tra nếu imagePath là object có thuộc tính path
+  if (typeof imagePath === 'object' && imagePath.path) {
+    imagePath = imagePath.path
+  }
+  
+  // Đảm bảo imagePath là string trước khi gọi startsWith
+  imagePath = String(imagePath)
+  
+  return imagePath.startsWith('http') ? imagePath : `${process.env.VUE_APP_BACKEND_API}${imagePath}`
+}
+
 const formatPrice = (price) => {
   return new Intl.NumberFormat('vi-VN').format(price)
 }
@@ -356,11 +398,11 @@ const dropFile = (e) => {
   }
 }
 
-
 const handleFileSelect = (event) => {
-  const file = event.target.files[0]; // Lấy tệp đầu tiên người dùng chọn
+  const file = event.target.files[0];
   if (file) {
-    productForm.image = file; // Gán tệp vào productForm.image
+    productForm.image = file;
+    handleFile(file);
   }
 };
 
@@ -370,13 +412,13 @@ const handleFile = (file) => {
     return
   }
 
-  // Validate file size (max 2MB)
   if (file.size > 2 * 1024 * 1024) {
     alert('Kích thước ảnh không được vượt quá 2MB')
     return
   }
 
   selectedFile.value = file
+  productForm.image = file
 
   const reader = new FileReader()
   reader.onload = (e) => {
@@ -388,7 +430,7 @@ const handleFile = (file) => {
 const removeImage = () => {
   previewImage.value = null
   selectedFile.value = null
-  productForm.value.image = ''
+  productForm.image = null
 }
 </script>
 
