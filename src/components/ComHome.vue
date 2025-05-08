@@ -100,31 +100,82 @@
 
   <button  @click="goToServiceList" class="btn-collab">Bắt đầu hợp tác</button>
 </div>
-  </section>
-  <section class="commitment">
-    <div class="commitment-left">
-      <h4>Cam kết chất lượng</h4>
-      <h2>Làm việc nhanh chóng là chất<br>lượng của chúng tôi</h2>
-      <p>
-        Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu<br>mà không làm giảm chất lượng.
-        Với quy trình hiệu quả và<br>đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh<br>chóng và đáng tin cậy.
-      </p>
+</section>
+<section class="commitment">
+  <div class="commitment-left">
+    <h4>Cam kết chất lượng</h4>
+    <h2>Làm việc nhanh chóng là chất<br>lượng của chúng tôi</h2>
+    <p>
+      Chúng tôi cam kết hoàn thành công việc với tốc độ tối ưu<br>mà không làm giảm chất lượng.
+      Với quy trình hiệu quả và<br>đội ngũ chuyên nghiệp, bạn luôn nhận được kết quả nhanh<br>chóng và đáng tin cậy.
+    </p>
+  </div>
+
+  <div class="commitment-right">
+  <div class="timeline-header">
+    <h3>Timeline</h3>
+    <div class="legend">
+      <span class="dot completed"></span> Dự án hoàn thành
+      <span class="dot inprogress"></span> Trong quá trình
+    </div>
+  </div>
+
+  <div class="timeline-chart">
+    <div class="timeline-row completed" style="left: 0%; width: 50%;"> 
+      <span class="percent">100%</span>
+      <span class="timeline-title">Thiết kế hệ thống</span>
+      <div class="avatars">
+        <img src="src/assets/image-1.png" />
+        <img src="src/assets/image-2.png" />
+        <img src="src/assets/image-3.png" />
+      </div>
     </div>
 
-    <div class="commitment-right">
-      <div class="timeline-header">
-        <h3>Timeline</h3>
-        <div class="legend">
-          <span class="dot completed"></span> Dự án hoàn thành
-          <span class="dot inprogress"></span> Trong quá trình
-        </div>
-      </div>
-
-      <div class="project-item">
-        <img src="../assets/5.png" alt="bang phat trien">
+    <!-- Project 2: Phát triển website -->
+    <div class="timeline-row inprogress" style="left: 30%; width: 50%;"> 
+      <span class="percent">80%</span>
+      <span class="timeline-title">Phát triển website</span>
+      <div class="avatars">
+        <img src="src/assets/image-4.png" />
+        <img src="src/assets/image-5.png" />
+        <img src="src/assets/image-6.png" />
+        <img src="src/assets/image-7.png" />
+        <img src="src/assets/image-8.png" />
+        <img src="src/assets/image-9.png" />
       </div>
     </div>
-  </section>
+
+    <!-- Project 3: Tối ưu website -->
+    <div class="timeline-row bottom" style="left: 50%; width: 45%;"> 
+      <span class="percent">40%</span>
+      <span class="timeline-title">Tối ưu website</span>
+      <div class="avatars">
+        <img src="src/assets/image-10.png" />
+        <img src="src/assets/image-11.png" />
+        <img src="src/assets/image-12.png" />
+      </div>
+    </div>
+
+    <!-- Timeline months: S10 to T21 -->
+    <div class="months">
+      <span>S10</span>
+      <span>M11</span>
+      <span>T12</span>
+      <span>W13</span>
+      <span>T14</span>
+      <span>F15</span>
+      <span>S16</span>
+      <span>S17</span>
+      <span>M18</span>
+      <span>T19</span>
+      <span>W20</span>
+      <span>T21</span>
+    </div>
+  </div>
+</div>
+
+</section>
+
 
   <!-- About Us Section -->
   <section class="about-us">
@@ -786,58 +837,229 @@ methods: {
     margin: 0 auto;
   }
   
-  .commitment-left {
-    flex: 1;
-    padding-top:80px;
-  }
-  
-  .commitment-left h4 {
-    color: #999;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .commitment-left h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #333;
-    line-height:42px;
-  }
-  
-  .commitment-left p {
-    font-size: 16px;
-    color: #666;
-    line-height:32px;
-  }
-  
+  section.commitment {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 40px;
+  gap: 40px;
+}
+
+.commitment-left,
 .commitment-right {
-    flex: 1;
-    position: relative;
+  flex: 1;
 }
-.project-item img {
-  height: 400px; 
-  object-fit: cover; 
+
+.commitment-left h4 {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 10px;
 }
-  .timeline-header {
-    display: flex;
-    margin-right:40px;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .timeline-header h3 {
-    font-size: 22px;
-    color: #333;
-  }
-  
-  .legend {
-    font-size: 12px;
-    color: #666;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+
+.commitment-left h2 {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.commitment-left p {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* Timeline section */
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.timeline-header h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Legend styles */
+.legend {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.legend .completed {
+  background-color: #2563eb;
+}
+
+.legend .inprogress {
+  background-color: #d1d5db;
+}
+
+/* Timeline chart background */
+.timeline-chart {
+  position: relative;
+  height: 300px;
+  background-color: #fff;
+  padding-top: 100px;
+  margin-top: 20px;
+  overflow-x: auto;
+  background-image: repeating-linear-gradient(
+    to right,
+    #eee,
+    #eee 1px,
+    transparent 1px,
+    transparent var(--col-width)
+  );
+  border-left: 1px solid #eee;
+}
+
+.timeline-chart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 230px; /* T14 */
+  width: 2px;
+  height: 85%;
+  background-color: #2563eb;
+  margin-top:40px;
+  z-index: 1;
+}
+
+.timeline-row {
+  position: absolute;
+  height: 48px;
+  border-radius: 999px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.timeline-row.completed {
+  background-color: #2563eb;
+  color: white;
+  top: 50px;
+}
+
+.timeline-row.inprogress {
+  background-color: white;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  top: 120px;
+}
+
+.timeline-row.bottom {
+  background-color: white;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  top: 200px;
+}
+
+.timeline-row .percent {
+  font-weight: bold;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-right: 10px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.timeline-row.completed .percent {
+  background-color: #1e40af;
+  color: white;
+}
+
+.timeline-title {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.timeline-row .avatars {
+  display: flex;
+  margin-left: auto;
+}
+
+.timeline-row .avatars img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  margin-left: -14px;
+  box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+.timeline-row .avatars img:first-child {
+  margin-left: 0;
+}
+
+.timeline-chart .months {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6b7280;
+  position: absolute;
+  top: 1px;
+  width: 100%;
+  padding: 5 12px;
+  box-sizing: border-box;
+}
+
+.timeline-chart {
+  background-image: repeating-linear-gradient(
+    to right,
+    #eee,
+    #eee 1px,
+    transparent 1px,
+    transparent 60px
+  );
+}
+
+.timeline-chart .months span {
+  flex: 1;
+  text-align: center;
+}
+
+.legend {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin: 0 5px;
+}
+
+.legend .completed {
+  background-color: #2563eb;
+}
+
+.legend .inprogress {
+  background-color: #d1d5db;
+}
+
   
   .dot {
     display: inline-block;
@@ -884,6 +1106,7 @@ methods: {
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+  
   
   .timeline-item.completed {
     background: #1a73e8;
@@ -1364,6 +1587,19 @@ methods: {
     margin-top:100px;
   }
 }
+@media (max-width: 1024px) {
+  .timeline-chart {
+    height: 320px;
+  }
+  .timeline-row {
+    font-size: 11px;
+    padding: 0 10px;
+  }
+  .timeline-row .avatars img {
+    width: 24px;
+    height: 24px;
+  }
+}
 @media (max-width: 1200px) {
   .header {
     padding: 20px 40px;
@@ -1548,6 +1784,22 @@ methods: {
     transform: translateX(-50%) rotate(180deg);
     top:-20px;
   }
+  .timeline-chart {
+    height: 360px;
+  }
+  .timeline-row {
+    font-size: 10px;
+    padding: 0 8px;
+  }
+  .timeline-row .avatars img {
+    width: 22px;
+    height: 22px;
+    margin-left: -10px;
+  }
+  .timeline-row .percent {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
 }
 @media (max-width: 576px) {
   .hero-text h1 {
@@ -1641,6 +1893,20 @@ methods: {
     margin-top :80px;
     width: 380px;
   }
+    .timeline-chart {
+    overflow-x: scroll;
+    height: 400px;
+  }
+
+  .timeline-row {
+    min-width: 280px;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .timeline-chart .months {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -1682,5 +1948,31 @@ methods: {
     margin-top :50px;
     width: 400px;
   }
+  .circle-main {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translateX(-20%);
+  }
+  .circle-main span{
+    font-size: 10px;
+  }
+  .circle-main small{
+    font-size: 10px;
+  }
+  .circle-top-right {
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    left:140px;
+    top: 60px;
+  }
+  
+  .circle-left {
+    left: -40px;
+    width: 180px;
+    height: 180px;
+  }
+  
 }
 </style>

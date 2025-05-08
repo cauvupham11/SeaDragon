@@ -44,7 +44,7 @@
         <div class="search-bar">
             <input type="text" placeholder="Tìm kiếm bài viết">
         </div>
-        <div class="sidebar">
+        <div class="sidebar-New">
           <h2>Bài viết gần đây</h2>
           <div class="recent-posts">
             <div
@@ -158,7 +158,7 @@
       background-repeat: no-repeat;
     }
   
-    .sidebar {
+    .sidebar-New {
       background: #fff;
       border: 1px solid black;
       padding: 20px;
@@ -166,7 +166,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   
-    .sidebar h2 {
+    .sidebar-New h2 {
       font-size: 18px;
       font-weight: bold;
       color: #1f2b6c;

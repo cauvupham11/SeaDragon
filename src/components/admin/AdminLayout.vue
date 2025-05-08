@@ -1,5 +1,4 @@
 <template>
-  <!-- Show login screen if not authenticated -->
   <div v-if="!isAuthenticated" class="login-container">
     <div class="login-card">
       <div class="login-side">
@@ -84,8 +83,7 @@
       <h1>ADMIN DASHBOARD</h1>
       <div class="admin-info">
         <i class="fa-regular fa-user"></i>
-        <span>Admin</span>
-        <button @click="logout">Đăng xuất</button>
+        <button @click="handleLogout">Đăng xuất</button>
       </div>
     </header>
     <div class="admin-layout">
@@ -112,6 +110,16 @@
               <i class="icon category-icon"></i> Quản lý phân loại
             </router-link>
           </li>
+          <li>
+            <router-link to="/admin/Account">
+              <i class="icon user-icon"></i> Quản lý tài khoản
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/Role">
+              <i class="icon user-icon"></i> Quản lý vai trò
+            </router-link>
+          </li>
         </ul>
       </aside>
       <main class="content">
@@ -122,151 +130,106 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthService } from '@/api/auth.service'
 
-const router = useRouter();
+const router = useRouter()
+const { login, isAuthenticated, isLoading, error, checkAuthStatus, logout, } = useAuthService() // Lấy thông tin user từ service
 
-// Authentication state
-const isAuthenticated = ref(false);
+// Các biến khác và hàm xử lý đăng nhập, đăng xuất
+const username = ref('')
+const password = ref('')
+const rememberMe = ref(false)
+const showPassword = ref(false)
+const usernameError = ref('')
+const passwordError = ref('')
 
-// Login form state
-const username = ref('');
-const password = ref('');
-const rememberMe = ref(false);
-const showPassword = ref(false);
-const isLoading = ref(false);
-const error = ref('');
-const usernameError = ref('');
-const passwordError = ref('');
-
-// Check authentication status on component mount
+// Kiểm tra trạng thái đăng nhập khi component mount
 onMounted(() => {
-  checkAuthStatus();
-});
-
-// Check if user is authenticated
-const checkAuthStatus = () => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    isAuthenticated.value = true;
-  } else {
-    isAuthenticated.value = false;
-  }
-};
+  checkAuthStatus()
+  initRememberedUser()
+})
 
 // Form validation
 const validateForm = () => {
-  let isValid = true;
+  let isValid = true
   
   // Reset error messages
-  usernameError.value = '';
-  passwordError.value = '';
-  error.value = '';
+  usernameError.value = ''
+  passwordError.value = ''
+  error.value = ''
   
   // Validate username
   if (!username.value.trim()) {
-    usernameError.value = 'Vui lòng nhập tên đăng nhập';
-    isValid = false;
+    usernameError.value = 'Vui lòng nhập tên đăng nhập'
+    isValid = false
   }
   
   // Validate password
   if (!password.value.trim()) {
-    passwordError.value = 'Vui lòng nhập mật khẩu';
-    isValid = false;
+    passwordError.value = 'Vui lòng nhập mật khẩu'
+    isValid = false
   } else if (password.value.length < 6) {
-    passwordError.value = 'Mật khẩu phải có ít nhất 6 ký tự';
-    isValid = false;
+    passwordError.value = 'Mật khẩu phải có ít nhất 6 ký tự'
+    isValid = false
   }
   
-  return isValid;
-};
+  return isValid
+}
 
 // Toggle password visibility
 const togglePasswordVisibility = () => {
-  showPassword.value = !showPassword.value;
-};
+  showPassword.value = !showPassword.value
+}
 
 // Handle login
 const handleLogin = async () => {
-  if (!validateForm()) return;
+  if (!validateForm()) return
   
   try {
-    isLoading.value = true;
+    await login({
+      email: username.value,
+      password: password.value
+    })
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Check login credentials (simulation)
-    if (username.value === 'admin' && password.value === 'admin123') {
-      // Login successful
-      console.log('Đăng nhập thành công!');
-      
-      // Store token in localStorage
-      localStorage.setItem('token', 'example-auth-token');
-      
-      // Store login info if "Remember me" is checked
-      if (rememberMe.value) {
-        localStorage.setItem('rememberedUser', username.value);
-      } else {
-        localStorage.removeItem('rememberedUser');
-      }
-      
-      // Update login status
-      isAuthenticated.value = true;
-      
-      // Redirect to dashboard
-      router.push('/admin/products');
+    if (rememberMe.value) {
+      localStorage.setItem('rememberedUser', username.value)
     } else {
-      // Login failed
-      error.value = 'Tên đăng nhập hoặc mật khẩu không chính xác';
+      localStorage.removeItem('rememberedUser')
     }
+    
+    router.push('/admin/products')
   } catch (err) {
-    error.value = 'Đã xảy ra lỗi. Vui lòng thử lại sau';
-    console.error('Lỗi đăng nhập:', err);
-  } finally {
-    isLoading.value = false;
+    // Error message is already set by auth service
+    console.error('Lỗi đăng nhập:', err)
   }
-};
+}
 
 // Handle logout
-const logout = () => {
-  // Clear login info
-  localStorage.removeItem('token');
-  
-  // Update login status
-  isAuthenticated.value = false;
-  
-  // Notify logout
-  alert("Đăng xuất thành công");
-  
-  // Reset form
-  resetForm();
-};
+const handleLogout = () => {
+  logout()
+  resetForm()
+  alert("Đăng xuất thành công")
+}
 
 // Reset form values
 const resetForm = () => {
-  // Reset password only, keep username if remembered
-  password.value = '';
-  error.value = '';
-  usernameError.value = '';
-  passwordError.value = '';
-  
-  // Restore username from localStorage if exists
-  initRememberedUser();
-};
+  password.value = ''
+  error.value = ''
+  usernameError.value = ''
+  passwordError.value = ''
+  initRememberedUser()
+}
 
 // Initialize remembered user from localStorage
 const initRememberedUser = () => {
-  const rememberedUser = localStorage.getItem('rememberedUser');
+  const rememberedUser = localStorage.getItem('rememberedUser')
   if (rememberedUser) {
-    username.value = rememberedUser;
-    rememberMe.value = true;
+    username.value = rememberedUser
+    rememberMe.value = true
   }
-};
-
-// Call init function
-initRememberedUser();
+}
 </script>
 
 <style scoped>
@@ -694,7 +657,7 @@ body {
   color: white;
   text-decoration: none;
   padding: 12px 15px;
-  border-radius: 8px;
+  
   font-size: 15px;
   font-weight: 500;
   transition: all 0.3s ease;

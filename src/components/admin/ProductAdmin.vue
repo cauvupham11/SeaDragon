@@ -2,6 +2,15 @@
     <div class="admin-product">
       <h1>Quản lý sản phẩm</h1>
     <button class="btn-add" @click="showAddProductForm">Thêm sản phẩm</button>
+    <div class="category-filter">
+      <label for="category-filter">Chọn danh mục:</label>
+      <select id="category-filter" v-model="selectedCategoryId" @change="filterByCategory">
+        <option v-for="category in categories" :key="category.id" :value="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+      <button class="btn-filter" @click="filterByCategory">Lọc sản phẩm</button>
+    </div>
     <table class="product-table">
         <thead>
           <tr>
@@ -14,13 +23,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products" :key="product.id">
+          <tr v-for="product in filteredProducts" :key="product.id">
             <td>
-              <img v-if="product.image" :src="getImageUrl(product.image)" class="product-image" alt="Product image">
-              <span v-else>Không có ảnh</span>
+              <!-- <img v-if="product.image" :src="getImageUrl(product.image)" class="product-image" alt="Product image"> -->
+              <!-- <span v-else>Không có ảnh</span> -->
             </td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category_id }}</td>
+            <td>{{ product.title || product.name }}</td>
+            <td>{{ product.category?.name || product.category_id }}</td>
             <td>{{ formatPrice(product.price) }} VNĐ</td>
             <td>
               <span :class="{'status-active': !product.isDeleted, 'status-inactive': product.isDeleted}">
@@ -44,13 +53,19 @@
           <div class="form-content">
             <form @submit.prevent="saveProduct">
               <div class="form-group">
-                <label for="category_id">Danh mục:</label>
-                <input type="text" v-model="productForm.category_id" id="category_id" required>
+                <!-- <label for="category_id">Danh mục:</label> -->
+                <label for="category_id">Chọn danh mục:</label>
+                  <select v-model="productForm.categoryId" id="category_id" name="category_id" required>
+                    <option disabled value="">-- Chọn danh mục --</option>
+                    <option v-for="category in categories" :key="category.id" :value="category.id">
+                      {{ category.name }}
+                    </option>
+                  </select>
+                <!-- <input type="text" v-model="productForm.category_id" id="category_id" required> -->
               </div>
-              
               <div class="form-group">
                 <label for="name">Tên sản phẩm:</label>
-                <input type="text" v-model="productForm.name" id="name" required>
+                <input type="text" v-model="productForm.title" id="name" required>
               </div>
               
               <div class="form-group">
@@ -75,7 +90,7 @@
                     <label for="image-upload" class="btn-upload">Chọn ảnh từ máy</label>
                   </div>
                   <div v-else class="preview-area">
-                    <img :src="previewImage || getImageUrl(productForm.image)" class="preview-image">
+                    <!-- <img :src="previewImage || getImageUrl(productForm.image)" class="preview-image"> -->
                     <button type="button" class="btn-remove-image" @click="removeImage">×</button>
                   </div>
                 </div>
@@ -91,16 +106,16 @@
                 <textarea v-model="productForm.description" id="description" required></textarea>
               </div>
               
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="isDeleted">Trạng thái:</label>
                 <select v-model="productForm.isDeleted" id="isDeleted" required>
                   <option :value="false">Còn hàng</option>
                   <option :value="true">Đã xóa</option>
                 </select>
-              </div>
+              </div> -->
               
               <div class="form-actions">
-                <button type="submit" class="btn-submit">{{ formSubmitButton }}</button>
+                <button type="submit" class="btn-submit">Create</button>
                 <button type="button" class="btn-cancel" @click="closeForm">Hủy</button>
               </div>
             </form>
@@ -120,241 +135,468 @@
       </div>
     </div>
 </template>
-
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, reactive } from 'vue'
+import ProductService from '@/api/productService'
+import apiService from '@/api/apiService'
 
-const products = ref([
-  { id: 1, category_id: 'C001', name: 'Táo', price: 10000, description: 'Táo tươi', isDeleted: false, image: 'apple.jpg' },
-  { id: 2, category_id: 'C002', name: 'Chuối', price: 8000, description: 'Chuối ngon', isDeleted: false, image: 'banana.jpg' },
-]);
+// Data states
+const products = ref([])
+const categories = ref([])
+const filteredProducts = ref([]) 
+const selectedCategoryId = ref('')
 
-const productForm = ref({
-  id: null,
-  category_id: '',
-  name: '',
-  image: '',
-  price: '',
+const productForm = reactive({
+  title: '',
   description: '',
-  isDeleted: false,
-});
+  price: 0,
+  categoryId: 0,
+  image: null,
+})
 
-const formTitle = ref('Thêm mới sản phẩm');
-const formSubmitButton = ref('Thêm sản phẩm');
-const showProductForm = ref(false);
-const showDeleteConfirm = ref(false);
-const deleteProductId = ref(null);
-const previewImage = ref(null);
-const isDragging = ref(false);
-const selectedFile = ref(null);
+// UI states
+const formTitle = ref('Thêm mới sản phẩm')
+const formSubmitButton = ref('Thêm sản phẩm')
+const showProductForm = ref(false)
+const showDeleteConfirm = ref(false)
+const deleteProductId = ref(null)
+const previewImage = ref(null)
+const isDragging = ref(false)
+const selectedFile = ref(null)
+const isLoading = ref(false)
 
-const formatPrice = (price) => {
-  return new Intl.NumberFormat('vi-VN').format(price);
-};
+onMounted(async () => {
+  await fetchCategories()
+  fetchProducts(selectedCategoryId.value)
+})
 
-const getImageUrl = (imageName) => {
-  return imageName.startsWith('http') ? imageName : `/images/${imageName}`;
-};
+const fetchProducts = async (categoryId = '') => {
+  try {
+    isLoading.value = true
+    const response = await apiService.get(`/v1/products?categoryId=${categoryId}`)
+    console.log('API trả về sản phẩm:', response.data || response)
+    products.value = response.data.data || [] // Đảm bảo lấy dữ liệu từ trường "data" trong API
+    filteredProducts.value = [...products.value]
+  } catch (error) {
+    console.error('Lỗi lấy sản phẩm:', error)
+  } finally {
+    isLoading.value = false
+  }
+}
 
+const filterByCategory =async () => {
+  filteredProducts.value = []
+  console.log('--- Bắt đầu lọc sản phẩm ---')
+  console.log('ID danh mục được chọn:', selectedCategoryId.value)
+
+  if (selectedCategoryId.value) {
+    var res = await  ProductService.getAllProducts(selectedCategoryId.value) 
+    console.log("kieu du leiu",typeof(res)),
+    console.log(res)
+    for (const item of res){
+      filteredProducts.value.push(item)
+    }
+    
+    console.log('Hiển thị tất cả sản phẩm:', filteredProducts.value)
+    return
+  }
+  console.log('Danh sách sản phẩm:', products.value)
+  filteredProducts.value = products.value.filter(product => {
+    const categoryId = product.category?.id || product.category_id || ''
+    console.log(`→ So sánh: sản phẩm ${product.title} có categoryId=${categoryId} với selected=${selectedCategoryId.value}`)
+    return categoryId == selectedCategoryId.value
+  })
+  console.log('Sản phẩm sau khi lọc:', filteredProducts.value)
+}
+
+const fetchCategories = async () => {
+  try {
+    const response = await apiService.get('/v1/categories')
+    console.log('Dữ liệu từ API:', response.data)
+    categories.value = response.data.data || []
+    
+    if (categories.value.length > 0) {
+      selectedCategoryId.value = categories.value[0].id
+      fetchProducts(selectedCategoryId.value)
+    } else {
+      console.log('Không có danh mục')
+    }
+  } catch (error) {
+    console.error('Lỗi khi lấy danh mục:', error)
+  }
+}
+
+const getProductDetail = async (id) => {
+  try {
+    return await ProductService.getProductById(id)
+  } catch (error) {
+    console.error('Failed to fetch product details:', error)
+    throw error
+  }
+}
 const showAddProductForm = () => {
-  resetForm();
-  showProductForm.value = true;
-};
+  resetForm()
+  showProductForm.value = true
+}
 
-const editProduct = (product) => {
-  productForm.value = { ...product };
-  previewImage.value = null;
-  formTitle.value = 'Sửa sản phẩm';
-  formSubmitButton.value = 'Cập nhật sản phẩm';
-  showProductForm.value = true;
-};
-
-const saveProduct = () => {
-  if (selectedFile.value) {
-    productForm.value.image = selectedFile.value.name;
+const editProduct = async (product) => {
+  try {
+    const productDetail = await getProductDetail(product.id)
+    productForm.value = { 
+      ...productDetail,
+      categoryId: productDetail.category?.id || ''
+    }
+    previewImage.value = null
+    formTitle.value = 'Sửa sản phẩm'
+    formSubmitButton.value = 'Cập nhật sản phẩm'
+    showProductForm.value = true
+  } catch (error) {
+    alert('Không thể tải thông tin sản phẩm')
   }
+}
 
-  if (productForm.value.id) {
-    const index = products.value.findIndex(p => p.id === productForm.value.id);
-    products.value[index] = { ...productForm.value };
-  } else {
-    productForm.value.id = products.value.length + 1;
-    products.value.push({ ...productForm.value });
+const saveProduct = async () => {
+  try {
+      isLoading.value = true
+      const formData = new FormData()
+formData.append('title', productForm.title)
+formData.append('description', productForm.description)
+formData.append('price', Number(productForm.price))
+formData.append('categoryId', Number(productForm.categoryId))
+      formData.append('image',new Image(productForm.image))
+  
+
+    for (let [key, value] of formData.entries()) {
+  console.log(key, value)
+}
+  await ProductService.createProduct(formData) // Pass categoryId here
+    
+    await fetchProducts(selectedCategoryId.value)
+    closeForm()
+    alert('Sản phẩm đã được lưu thành công!')
+  } catch (error) {
+    console.error('Failed to save product:', error)
+    alert('Lỗi khi lưu sản phẩm')
+  } finally {
+    isLoading.value = false
   }
-  resetForm();
-  showProductForm.value = false;
-};
-
+}
 const confirmDeleteProduct = (id) => {
-  deleteProductId.value = id;
-  showDeleteConfirm.value = true;
-};
+  deleteProductId.value = id
+  showDeleteConfirm.value = true
+}
 
-const deleteProduct = () => {
-  const index = products.value.findIndex(p => p.id === deleteProductId.value);
-  if (index !== -1) {
-    products.value.splice(index, 1);
+const deleteProduct = async () => {
+  try {
+    isLoading.value = true
+    await ProductService.deleteProducts([deleteProductId.value])
+    await fetchProducts()
+    alert('Xóa sản phẩm thành công!')
+  } catch (error) {
+    console.error('Failed to delete product:', error)
+    alert('Lỗi khi xóa sản phẩm')
+  } finally {
+    showDeleteConfirm.value = false
+    deleteProductId.value = null
+    isLoading.value = false
   }
-  showDeleteConfirm.value = false;
-  deleteProductId.value = null;
-};
+}
 
 const cancelDelete = () => {
-  showDeleteConfirm.value = false;
-  deleteProductId.value = null;
-};
+  showDeleteConfirm.value = false
+  deleteProductId.value = null
+}
 
 const closeForm = () => {
-  showProductForm.value = false;
-  previewImage.value = null;
-  selectedFile.value = null;
-};
+  showProductForm.value = false
+  previewImage.value = null
+  selectedFile.value = null
+}
 
 const resetForm = () => {
-  productForm.value = { id: null, category_id: '', name: '', image: '', price: '', description: '', isDeleted: false };
-  formTitle.value = 'Thêm mới sản phẩm';
-  formSubmitButton.value = 'Thêm sản phẩm';
-  previewImage.value = null;
-  selectedFile.value = null;
-};
+  productForm.value = { 
+    id: null, 
+    categoryId: '', 
+    title: '', 
+    image: '', 
+    price: '', 
+    description: '', 
+    isDeleted: false 
+  }
+  formTitle.value = 'Thêm mới sản phẩm'
+  formSubmitButton.value = 'Thêm sản phẩm'
+  previewImage.value = null
+  selectedFile.value = null
+}
 
-const dragOver = () => {
-  isDragging.value = true;
-};
+// Image handlers
+// const getImageUrl = (imagePath) => {
+//   if (!imagePath) return ''
+//   return imagePath.startsWith('http') ? imagePath : `${process.env.VUE_APP_BACKEND_API}${imagePath}`
+// }
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('vi-VN').format(price)
+}
+
+const dragOver = (e) => {
+  e.preventDefault()
+  isDragging.value = true
+}
 
 const dragLeave = () => {
-  isDragging.value = false;
-};
+  isDragging.value = false
+}
 
 const dropFile = (e) => {
-  isDragging.value = false;
-  const files = e.dataTransfer.files;
+  e.preventDefault()
+  isDragging.value = false
+  const files = e.dataTransfer.files
   if (files.length) {
-    handleFile(files[0]);
+    handleFile(files[0])
   }
-};
+}
 
-const handleFileSelect = (e) => {
-  const files = e.target.files;
-  if (files.length) {
-    handleFile(files[0]);
+
+const handleFileSelect = (event) => {
+  const file = event.target.files[0]; // Lấy tệp đầu tiên người dùng chọn
+  if (file) {
+    productForm.image = file; // Gán tệp vào productForm.image
   }
 };
 
 const handleFile = (file) => {
   if (!file.type.match('image.*')) {
-    alert('Vui lòng chọn file ảnh!');
-    return;
+    alert('Vui lòng chọn file ảnh!')
+    return
   }
 
-  selectedFile.value = file;
+  // Validate file size (max 2MB)
+  if (file.size > 2 * 1024 * 1024) {
+    alert('Kích thước ảnh không được vượt quá 2MB')
+    return
+  }
 
-  const reader = new FileReader();
+  selectedFile.value = file
+
+  const reader = new FileReader()
   reader.onload = (e) => {
-    previewImage.value = e.target.result;
-  };
-  reader.readAsDataURL(file);
-};
+    previewImage.value = e.target.result
+  }
+  reader.readAsDataURL(file)
+}
 
 const removeImage = () => {
-  previewImage.value = null;
-  selectedFile.value = null;
-  productForm.value.image = '';
-};
+  previewImage.value = null
+  selectedFile.value = null
+  productForm.value.image = ''
+}
 </script>
 
 <style scoped>
 .admin-product {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 30px;
+  max-width: 1400px;
   margin: 0 auto;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
-  margin-bottom: 20px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .btn-add {
-  background-color: #4CAF50;
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
   color: white;
-  padding: 10px 15px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+/* Phần lọc danh mục */
+.category-filter {
   margin-bottom: 20px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
-.btn-add:hover {
-  background-color: #45a049;
+.category-filter label {
+  font-size: 16px;
+  margin-right: 10px;
 }
 
+.category-filter select {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.btn-filter {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.btn-filter:hover {
+  background-color: #0056b3;
+}
+
+/* Bảng sản phẩm */
 .product-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  margin-top: 20px;
 }
+
 .product-table th,
 .product-table td {
-  border: 1px solid #ddd;
-  padding: 12px;
+  padding: 12px 15px;
   text-align: left;
+  border: 1px solid #ddd;
 }
 
 .product-table th {
   background-color: #f8f9fa;
-  font-weight: bold;
-  color: #333;
-}
-.product-table tr:nth-child(even) {
-  background-color: #f9f9f9;
 }
 
-.product-table tr:hover {
-  background-color: #f1f1f1;
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
 .status-active {
-  color: #28a745;
-  font-weight: bold;
+  color: green;
 }
 
 .status-inactive {
-  color: #dc3545;
-  font-weight: bold;
+  color: red;
 }
 
-.action-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.btn-edit {
-  background-color: #ffc107;
-  color: #212529;
+.action-buttons button {
   padding: 6px 12px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
-.btn-edit:hover {
-  background-color: #e0a800;
+.action-buttons button:hover {
+  background-color: #0056b3;
 }
 
 .btn-delete {
   background-color: #dc3545;
-  color: white;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .btn-delete:hover {
   background-color: #c82333;
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-table th,
+.product-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.product-table th {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.product-table tr {
+  transition: background 0.2s;
+}
+
+.product-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status-active {
+  color: #27ae60;
+  font-weight: 600;
+  background: rgba(46, 204, 113, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.status-inactive {
+  color: #e74c3c;
+  font-weight: 600;
+  background: rgba(231, 76, 60, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit {
+  background: linear-gradient(45deg, #f1c40f, #e67e22);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+
+.btn-delete:hover {
+  transform: translateY(-2px);
 }
 
 .modal-overlay {
@@ -363,202 +605,235 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background: rgba(44, 62, 80, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(3px);
 }
 
 .product-form-dialog {
-  background-color: white;
-  border-radius: 8px;
-  width: 500px;
-  max-width: 90%;
+  background: white;
+  border-radius: 16px;
+  width: 600px;
+  max-width: 95%;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .form-header {
-  padding: 15px 20px;
-  border-bottom: 1px solid #eee;
-  flex-shrink: 0;
+  padding: 20px 30px;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-content {
+  padding: 30px;
   overflow-y: auto;
-  padding: 0 20px;
-  flex-grow: 1;
 }
 
 .form-header h2 {
   margin: 0;
-  color: #333;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .btn-close {
-  position: absolute; 
-  left: 980px;
-  top: 50px; 
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  color: #999;
-  padding: 0;
-  line-height: 1;
-  z-index: 1000; 
+  color: white;
+  transition: transform 0.2s;
 }
 
 .btn-close:hover {
-  color: #666;
+  transform: rotate(90deg);
 }
 
 form {
-  padding: 15px 0;
-}
-
-.form-group textarea {
-  min-height: 100px;
-  max-height: 200px;
-  resize: vertical;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
   display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #555;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 12px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .form-actions {
-  position: sticky;
-  bottom: 0;
-  background: white;
-  padding: 15px 0;
-  margin-top: 15px;
-  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #dfe6e9;
 }
 
 .btn-submit {
-  background-color: #007bff;
+  background: linear-gradient(45deg, #3498db, #2980b9);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-submit:hover {
-  background-color: #0069d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
 }
 
 .btn-cancel {
-  background-color: #6c757d;
+  background: linear-gradient(45deg, #95a5a6, #7f8c8d);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-cancel:hover {
-  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(149, 165, 166, 0.3);
 }
 
 .confirm-dialog {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  width: 400px;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  width: 450px;
   max-width: 90%;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
 }
 
 .confirm-dialog p {
-  margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
 }
 
 .confirm-actions {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .btn-confirm {
-  background-color: #dc3545;
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
   color: white;
-  padding: 8px 20px;
+  padding: 10px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s;
 }
 
 .btn-confirm:hover {
-  background-color: #c82333;
+  transform: translateY(-2px);
 }
 
 .product-image {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .image-upload-container {
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  padding: 20px;
+  border: 2px dashed #b2bec3;
+  border-radius: 12px;
+  padding: 30px;
   text-align: center;
-  transition: all 0.3s;
-  min-height: 150px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
+  background: #f9f9f9;
 }
 
 .image-upload-container.drag-active {
-  border-color: #4CAF50;
-  background-color: rgba(76, 175, 80, 0.1);
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
 }
 
 .upload-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .upload-icon {
-  font-size: 36px;
-  color: #666;
+  font-size: 48px;
+  color: #7f8c8d;
+  transition: color 0.2s;
+}
+
+.image-upload-container.drag-active .upload-icon {
+  color: #2ecc71;
 }
 
 .btn-upload {
-  background-color: #4CAF50;
+  background: linear-gradient(45deg, #2ecc71, #27ae60);
   color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s;
+  font-weight: 600;
+  transition: transform 0.2s;
 }
 
 .btn-upload:hover {
-  background-color: #45a049;
+  transform: translateY(-2px);
 }
 
 .preview-area {
@@ -569,28 +844,30 @@ form {
 
 .preview-image {
   max-width: 100%;
-  max-height: 200px;
-  border-radius: 4px;
+  max-height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-remove-image {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 30px;
-  height: 30px;
-  background-color: #dc3545;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
   color: white;
   border: none;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s;
 }
 
 .btn-remove-image:hover {
-  background-color: #c82333;
+  transform: scale(1.1);
 }
 </style>

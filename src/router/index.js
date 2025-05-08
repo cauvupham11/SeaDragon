@@ -10,6 +10,8 @@ import Contact from '@/components/ContactPage.vue';
 import AdminLayout from '@/components/admin/AdminLayout.vue';
 import ProductAdmin from '@/components/admin/ProductAdmin.vue';
 import OrderAdmin from '@/components/admin/OrderAdmin.vue';
+import ComAccount from '@/components/admin/ComAccount.vue';
+import AdminRole from "@/components/admin/AdminRole.vue";
 // import LoginPage from "@/components/admin/LoginPage.vue";
 import CategoriesAdmin from "@/components/admin/CategoriesAdmin.vue";
 import ComContent from "@/components/admin/ComContent.vue";
@@ -82,6 +84,16 @@ const routes=[
             path: "Content",
             name: "ComContent",
             component: ComContent,
+        },
+        {
+            path: "Account",
+            name: "ComAccount",
+            component: ComAccount,
+        },
+        {
+            path: "Role",
+            name: "AdminRole",
+            component: AdminRole,
         },
         ],
     }
